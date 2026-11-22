@@ -73,7 +73,7 @@ export const skills: SkillItem[] = [
   {
     id: "java",
     name: "Java",
-    icon: "/icons/java.svg",
+    icon: "./icons/java.svg",
     category: "Languages & Backend",
     description: [
       "Worked on optimising Java-based data processing models for the Market Data Real Time (MDRT) billing application interacting with BigQuery log records. After my changes were implemented, execution time was reduced by 76%.",
@@ -84,7 +84,7 @@ export const skills: SkillItem[] = [
   {
     id: "python",
     name: "Python",
-    icon: "/icons/python.svg",
+    icon: "./icons/python.svg",
     category: "Languages & ML",
     description: [
       "Developed a concurrent Python data upload script hosted on a dedicated VM for continuous Google Cloud Platform data transfer, using smart concurrency to process multiple data streams simultaneously and double transfer speeds.",
@@ -95,7 +95,7 @@ export const skills: SkillItem[] = [
   {
     id: "csharp",
     name: "C#",
-    icon: "/icons/csharp.svg",
+    icon: "./icons/csharp.svg",
     category: "Languages",
     description: [
       "Developed object-oriented software systems in C#, including A-Level System Software Design where my AS-Level coursework was awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework.",
@@ -105,7 +105,7 @@ export const skills: SkillItem[] = [
   {
     id: "javascript",
     name: "JavaScript",
-    icon: "/icons/javascript.svg",
+    icon: "./icons/javascript.svg",
     category: "Frontend & Fullstack",
     description: [
       "Rebuilt the frontend for the legacy Network Reliability Engineering (NRE) Graph tool, improving UX flow and application load speeds for internal teams.",
@@ -116,7 +116,7 @@ export const skills: SkillItem[] = [
   {
     id: "html5",
     name: "HTML5",
-    icon: "/icons/html5.svg",
+    icon: "./icons/html5.svg",
     category: "Frontend",
     description: [
       "Built accessible, semantic web interfaces for the NRE Graph tool rebuild, custom design system components, and digital form workflows.",
@@ -126,7 +126,7 @@ export const skills: SkillItem[] = [
   {
     id: "css3",
     name: "CSS3",
-    icon: "/icons/css3.svg",
+    icon: "./icons/css3.svg",
     category: "Frontend & Design Systems",
     description: [
       "Translated Figma token collections into CSS custom properties supporting dark and light modes, responsive layouts, and component animations.",
@@ -136,7 +136,7 @@ export const skills: SkillItem[] = [
   {
     id: "sql",
     name: "SQL & BigQuery",
-    icon: "/icons/sql.svg",
+    icon: "./icons/sql.svg",
     category: "Data & Analytics",
     description: [
       "Queried and optimised high-volume log and billing datasets across relational databases and Google BigQuery for CME Group's real-time market data billing systems.",
@@ -146,7 +146,7 @@ export const skills: SkillItem[] = [
   {
     id: "yaml",
     name: "YAML",
-    icon: "/icons/yaml.svg",
+    icon: "./icons/yaml.svg",
     category: "Cloud & DevOps",
     description: [
       "Wrote Kubernetes cluster manifests and custom Argo Workflows CI/CD pipeline definitions to separate local development builds from secure in-cluster deployments.",
@@ -156,7 +156,7 @@ export const skills: SkillItem[] = [
   {
     id: "figma",
     name: "Figma",
-    icon: "/icons/figma.svg",
+    icon: "./icons/figma.svg",
     category: "UI/UX & Design Systems",
     description: [
       "Designed core components for the CME Design System (buttons, mobile menus, dropdowns, tooltips, accordions, interactive loaders) and workspace layouts for the CME Trading Simulator.",
@@ -167,7 +167,7 @@ export const skills: SkillItem[] = [
   {
     id: "kubernetes",
     name: "Kubernetes (GKE)",
-    icon: "/icons/kubernetes.svg",
+    icon: "./icons/kubernetes.svg",
     category: "Cloud & DevOps",
     description: [
       "Configured NATS JetStream clusters, Key-Value stores, and backend microservices on Google Kubernetes Engine (GKE), isolating local development builds from secure cluster deployments.",
@@ -177,7 +177,7 @@ export const skills: SkillItem[] = [
   {
     id: "gcp",
     name: "Google Cloud Platform",
-    icon: "/icons/googlecloud.svg",
+    icon: "./icons/googlecloud.svg",
     category: "Cloud & DevOps",
     description: [
       "Worked on applications migrated from on-prem servers to Google Cloud Platform, creating Pub/Sub channels, managing GKE workloads, querying BigQuery datasets, pushing images to Artifact Registry, and monitoring services with Cloud Logging and Cloud Monitoring.",
@@ -187,7 +187,7 @@ export const skills: SkillItem[] = [
   {
     id: "argo",
     name: "Argo Workflows & Google Jib",
-    icon: "/icons/argo.svg",
+    icon: "./icons/argo.svg",
     category: "CI/CD Automation",
     description: [
       "Updated CI/CD pipelines using custom Argo Workflows and Google Jib (Artifact Registry), resolving Java 17 runtime issues and unblocking deployments.",
@@ -197,7 +197,7 @@ export const skills: SkillItem[] = [
   {
     id: "nats",
     name: "NATS JetStream",
-    icon: "/icons/nats.svg",
+    icon: "./icons/nats.svg",
     category: "Real-Time Messaging",
     description: [
       "Configured NATS JetStream and Key-Value stores on GKE to stream real-time market data to customers via WebSockets and Google Pub/Sub.",
@@ -207,7 +207,7 @@ export const skills: SkillItem[] = [
   {
     id: "grpc",
     name: "gRPC, WebSockets & Pact",
-    icon: "/icons/grpc.svg",
+    icon: "./icons/grpc.svg",
     category: "APIs & Contract Testing",
     description: [
       "Supported real-time market data delivery over WebSockets and maintained backward compatibility across gRPC microservices by adding Pact API contract testing into the deployment pipeline to prevent race conditions.",
@@ -217,7 +217,7 @@ export const skills: SkillItem[] = [
   {
     id: "pytorch",
     name: "PyTorch & Machine Learning",
-    icon: "/icons/pytorch.svg",
+    icon: "./icons/pytorch.svg",
     category: "AI & Adversarial ML",
     description: [
       "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise (Glaze/Nightshade concept) to protect digital artwork from AI scraping.",
@@ -227,7 +227,7 @@ export const skills: SkillItem[] = [
   {
     id: "androidstudio",
     name: "Android Studio & Enterprise Tooling",
-    icon: "/icons/androidstudio.svg",
+    icon: "./icons/androidstudio.svg",
     category: "Mobile, Scripts & SecOps",
     description: [
       "Experienced with Android Studio, Google App Scripts (building an API for Software Request Forms), Tripwire Enterprise and Remedy (auditing production Change Requests and resolving over 1,000 cleartext password exposures), and Jamf/Oomnitza endpoint management.",
