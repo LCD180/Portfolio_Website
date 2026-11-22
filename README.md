@@ -2,6 +2,8 @@
 
 React portfolio built with `@lewisdempster/design-system`.
 
+Live site: https://lcd180.github.io/Portfolio_Website/
+
 ## Scripts
 
 ```bash
