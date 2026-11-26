@@ -20,6 +20,13 @@ export interface AccordionEntry {
   };
 }
 
+export interface SocialBadgeLink {
+  id: string;
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
 export const designSystemInfo = {
   name: "Simple Portfolio Design System",
   figmaUrl:
@@ -49,11 +56,37 @@ export interface TokenPreview {
 
 export const navigationItems = [
   { id: "home", label: "Home", href: "#home" },
-  { id: "skills", label: "Skills", href: "#skills" },
   { id: "experience", label: "Experience", href: "#experience" },
+  { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "other", label: "Other", href: "#other" },
   { id: "contact", label: "Contact", href: "#contact" },
+];
+
+export const topSocialBadges: SocialBadgeLink[] = [
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/lewis-dempster-b884672b3",
+    external: true,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: "https://github.com/LCD180",
+    external: true,
+  },
+  {
+    id: "figma",
+    label: "Figma Community",
+    href: designSystemInfo.figmaUrl,
+    external: true,
+  },
+  {
+    id: "email",
+    label: "lewis.dempster@hotmail.com",
+    href: "mailto:lewis.dempster@hotmail.com",
+  },
 ];
 
 export const heroContent = {
@@ -64,8 +97,9 @@ export const heroContent = {
   ctaLabel: "View Experience",
   aboutTitle: "Who am I",
   aboutParagraphs: [
-    "I am an IT Higher Level Apprentice (HLA) at CME Group with a creative edge and a strong interest in future-focused technology. I’m a fast learner, staying up to date with the latest tech trends and working well in Agile environments with clear requirements, defined tasks, and daily standups.",
-    "Rotating across backend market data development, full-stack tooling, vulnerability compliance, and UI/UX at CME Group while studying BSc Computing Systems at Ulster University has given me hands-on experience across both software engineering and interface design.",
+    "IT Higher Level Apprentice (HLA) at CME Group studying BSc (Hons) Computing Systems at Ulster University.",
+    "Experienced across backend market data engineering, full-stack web tooling, vulnerability compliance, and UI/UX design systems.",
+    "Fast learner who thrives in Agile teams with clear requirements, defined tickets, and daily standups.",
   ],
 };
 
@@ -76,7 +110,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/java.svg",
     category: "Languages & Backend",
     description: [
-      "Worked on optimising Java-based data processing models for the Market Data Real Time (MDRT) billing application interacting with BigQuery log records. After my changes were implemented, execution time was reduced by 76%.",
+      "Optimised Java data processing models for the Market Data Real Time (MDRT) billing application querying BigQuery logs, cutting execution time by 76%.",
       "Resolved Java 17 runtime issues across containerised builds using Google Jib and Artifact Registry.",
     ],
     appliedIn: ["MDRT Billing Application", "Java 17 CI/CD Pipelines", "BSc Computing Systems"],
@@ -87,8 +121,8 @@ export const skills: SkillItem[] = [
     icon: "./icons/python.svg",
     category: "Languages & ML",
     description: [
-      "Developed a concurrent Python data upload script hosted on a dedicated VM for continuous Google Cloud Platform data transfer, using smart concurrency to process multiple data streams simultaneously and double transfer speeds.",
-      "Also used Python in the NRE Graph tool rebuild and in my machine learning artwork protection project with PyTorch.",
+      "Built a concurrent Python data upload script on a dedicated VM for continuous GCP transfers, doubling transfer speeds.",
+      "Used Python in the NRE Graph tool rebuild and in an adversarial machine learning artwork protection platform with PyTorch.",
     ],
     appliedIn: ["Concurrent GCP Data Upload", "NRE Graph Tool", "Adversarial ML Art Platform"],
   },
@@ -98,7 +132,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/csharp.svg",
     category: "Languages",
     description: [
-      "Developed object-oriented software systems in C#, including A-Level Software Systems Development where my AS-Level coursework was awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework.",
+      "Developed object-oriented software systems in C#, including A-Level Software Systems Development where my AS-Level coursework scored 100% and was showcased by CCEA as exemplary work.",
     ],
     appliedIn: ["CCEA Exemplary Coursework (100%)", "Software Systems Development", "BSc Computing Systems"],
   },
@@ -108,8 +142,8 @@ export const skills: SkillItem[] = [
     icon: "./icons/javascript.svg",
     category: "Frontend & Fullstack",
     description: [
-      "Rebuilt the frontend for the legacy Network Reliability Engineering (NRE) Graph tool, improving UX flow and application load speeds for internal teams.",
-      "Built web applications, Google App Scripts APIs for internal software request forms, and React component libraries.",
+      "Rebuilt the legacy Network Reliability Engineering (NRE) Graph tool frontend, improving UX flow and load speeds.",
+      "Built React component libraries and Google App Scripts APIs for automated internal software request workflows.",
     ],
     appliedIn: ["NRE Graph Tool Overhaul", "Simple Portfolio Design System", "Software Request Form API"],
   },
@@ -129,7 +163,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/css3.svg",
     category: "Frontend & Design Systems",
     description: [
-      "Translated Figma token collections into CSS custom properties supporting dark and light modes, responsive layouts, and component animations.",
+      "Translated Figma token collections into CSS custom properties supporting dark and light modes, responsive layouts, and fluid animations.",
     ],
     appliedIn: ["Simple Portfolio Design System", "NRE Custom Design System"],
   },
@@ -139,7 +173,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/sql.svg",
     category: "Data & Analytics",
     description: [
-      "Queried and optimised high-volume log and billing datasets across relational databases and Google BigQuery for CME Group's real-time market data billing systems.",
+      "Queried and optimised high-volume log and billing datasets across relational databases and Google BigQuery for real-time market data billing.",
     ],
     appliedIn: ["MDRT BigQuery Billing", "Database Systems"],
   },
@@ -149,7 +183,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/yaml.svg",
     category: "Cloud & DevOps",
     description: [
-      "Wrote Kubernetes cluster manifests and custom Argo Workflows CI/CD pipeline definitions to separate local development builds from secure in-cluster deployments.",
+      "Authored Kubernetes cluster manifests and custom Argo Workflows CI/CD pipeline definitions separating local builds from cluster deployments.",
     ],
     appliedIn: ["Argo Workflows CI/CD", "GKE Cluster Configurations"],
   },
@@ -159,8 +193,8 @@ export const skills: SkillItem[] = [
     icon: "./icons/figma.svg",
     category: "UI/UX & Design Systems",
     description: [
-      "Designed core components for the CME Design System (buttons, mobile menus, dropdowns, tooltips, accordions, interactive loaders) and workspace layouts for the CME Trading Simulator.",
-      "Created wireframes and interactive prototypes with 3D cartoon-style floor maps for the CME Desk Booking System redesign, and published the Simple Portfolio Design System on Figma Community.",
+      "Designed reusable components for the CME Design System and interface layouts for the CME Trading Simulator.",
+      "Prototyped 3D floor maps for the CME Desk Booking System redesign and published the Simple Portfolio Design System on Figma Community.",
     ],
     appliedIn: ["CME Design System", "Desk Booking Redesign", "CME Trading Simulator", "Simple Portfolio Design System"],
   },
@@ -170,7 +204,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/kubernetes.svg",
     category: "Cloud & DevOps",
     description: [
-      "Configured NATS JetStream clusters, Key-Value stores, and backend microservices on Google Kubernetes Engine (GKE), isolating local development builds from secure cluster deployments.",
+      "Configured NATS JetStream clusters, Key-Value stores, and backend microservices on Google Kubernetes Engine (GKE).",
     ],
     appliedIn: ["MDRT Market Data Streaming", "GKE Environment Isolation"],
   },
@@ -180,7 +214,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/googlecloud.svg",
     category: "Cloud & DevOps",
     description: [
-      "Worked on applications migrated from on-prem servers to Google Cloud Platform, creating Pub/Sub channels, managing GKE workloads, querying BigQuery datasets, pushing images to Artifact Registry, and monitoring services with Cloud Logging and Cloud Monitoring.",
+      "Migrated and maintained services from on-prem servers to GCP using Pub/Sub, GKE, BigQuery, Artifact Registry, Cloud Logging, and Cloud Monitoring.",
     ],
     appliedIn: ["On-Prem to Cloud Migration", "GCP Pub/Sub & BigQuery", "Concurrent VM Data Upload"],
   },
@@ -190,7 +224,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/argo.svg",
     category: "CI/CD Automation",
     description: [
-      "Updated CI/CD pipelines using custom Argo Workflows and Google Jib (Artifact Registry), resolving Java 17 runtime issues and unblocking deployments.",
+      "Modernised CI/CD pipelines using custom Argo Workflows and Google Jib (Artifact Registry), resolving Java 17 runtime issues.",
     ],
     appliedIn: ["MDRT CI/CD Modernisation", "Artifact Registry Builds"],
   },
@@ -210,7 +244,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/grpc.svg",
     category: "APIs & Contract Testing",
     description: [
-      "Supported real-time market data delivery over WebSockets and maintained backwards compatibility across gRPC microservices by adding Pact API contract testing into the deployment pipeline to prevent race conditions.",
+      "Maintained backwards compatibility across gRPC microservices and WebSocket streams by integrating Pact API contract testing into deployment pipelines.",
     ],
     appliedIn: ["MDRT WebSockets & gRPC", "Pact Contract Testing"],
   },
@@ -220,7 +254,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/pytorch.svg",
     category: "AI & Adversarial ML",
     description: [
-      "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise (Glaze/Nightshade concept) to protect digital artwork from AI scraping.",
+      "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise against AI scraping.",
     ],
     appliedIn: ["Full-Stack Art Platform & Adversarial ML"],
   },
@@ -230,7 +264,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/androidstudio.svg",
     category: "Mobile, Scripts & SecOps",
     description: [
-      "Experienced with Android Studio, Google App Scripts (building an API for Software Request Forms), Tripwire Enterprise and Remedy (auditing production Change Requests and resolving over 1,000 cleartext password exposures), and Jamf/Oomnitza endpoint management.",
+      "Worked with Android Studio, Google App Scripts APIs, Tripwire Enterprise and Remedy (resolving 1,000+ cleartext password exposures), and Jamf/Oomnitza.",
     ],
     appliedIn: ["Software Request Form API", "Tripwire Enterprise VMT", "Android Studio"],
   },
@@ -243,23 +277,23 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "May 2026 - Dec 2026",
     paragraphs: [
-      "Worked in a story- and ticket-based Agile team. Configured NATS JetStream and Key-Value stores deployed on Google Kubernetes Engine (GKE), enabling the platform to stream real-time market data to customers via WebSockets and Google Pub/Sub.",
-      "Worked on optimising Java-based data processing models for the MDRT billing application interacting with high-volume BigQuery log records. After my changes were implemented, execution time was reduced by 76%.",
-      "Updated CI/CD pipelines using custom Argo Workflows (YAML) and Google Jib (Artifact Registry), resolving Java 17 runtime issues and unblocking deployments.",
-      "Implemented Pact API contract testing across deployments to eliminate race conditions and maintain gRPC microservice backwards compatibility, managed Kubernetes configurations to separate local development builds from secure cluster deployments, and maintained applications migrated from on-prem servers to GCP (creating Pub/Sub channels, BigQuery, GKE, Cloud Logging, and Cloud Monitoring).",
+      "Configured NATS JetStream and Key-Value stores on GKE to stream real-time market data via WebSockets and Google Pub/Sub.",
+      "Optimised Java billing models interacting with BigQuery log records, reducing execution time by 76%.",
+      "Updated CI/CD pipelines with Argo Workflows (YAML) and Google Jib (Artifact Registry) to resolve Java 17 runtime issues.",
+      "Added Pact API contract testing for gRPC backwards compatibility and supported on-prem to GCP service migrations.",
     ],
     tags: ["Java 17", "NATS JetStream", "Key-Value Stores", "GKE", "WebSockets", "Pub/Sub", "BigQuery", "Argo Workflows", "Google Jib", "Pact", "gRPC"],
   },
   {
     id: "cme-desk-booking-role",
-    title: "Desk Booking System Redesign - UX/UI Lead",
+    title: "Enterprise Desk Booking System Redesign - UX/UI Lead",
     organisation: "CME Group",
     period: "Jun 2026 - Dec 2026",
     paragraphs: [
-      "Worked alongside one other apprentice to lead the UX/UI redesign of an enterprise desk-booking system, replacing a legacy tool to improve navigation and visual clarity from initial discovery through to final high-fidelity delivery.",
-      "Ran user research by designing internal staff surveys, conducting competitor analysis, and turning the findings into clear project requirements documentation.",
-      "Created wireframes and interactive high-fidelity prototypes in Figma using the CME Design System, introducing 3D cartoon-style floor maps, bulk/recurring booking flows, and space utilisation metrics tailored to the Belfast office.",
-      "Presented the end-to-end research insights, workflow demonstrations, and final UI prototypes to the Senior Director of Product Management and Executive Leadership.",
+      "Co-led the end-to-end UX/UI redesign of CME Group's enterprise desk-booking system for the Belfast office.",
+      "Conducted staff surveys and competitor analysis, translating findings into structured project requirements.",
+      "Designed interactive Figma prototypes using the CME Design System, featuring 3D cartoon-style floor maps, bulk/recurring bookings, and space utilisation metrics.",
+      "Presented research insights, live workflow demos, and final UI designs to the Senior Director of Product Management and Executive Leadership.",
     ],
     tags: ["Figma", "CME Design System", "User Research", "3D Floor Maps", "Executive Presentation"],
   },
@@ -269,9 +303,9 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Dec 2025 - May 2026",
     paragraphs: [
-      "Joined the Vulnerability Management Team (VMT), whose role is maintaining server compliance, auditing production releases, and resolving security vulnerabilities across CME infrastructure.",
-      "Led an initiative to eliminate over 1,000 cleartext password exposures across the VMT environment, identifying affected systems and coordinating credential remediation with teams.",
-      "Used CME Tripwire Enterprise, Alphabet, and Remedy in a security gatekeeper and change-management review role across releases proposed by teams across CME Group. Evaluated Change Requests (CRQs) against a prescribed checklist of release criteria, authorised compliant deployments, blocked high-risk changes, and liaised with teams that had failed to meet release criteria.",
+      "Audited production releases, maintained server compliance, and resolved security vulnerabilities across CME infrastructure.",
+      "Led an initiative eliminating over 1,000 cleartext password exposures across the VMT environment.",
+      "Reviewed Change Requests (CRQs) using Tripwire Enterprise, Alphabet, and Remedy, authorising compliant releases and blocking high-risk deployments.",
     ],
     tags: ["Tripwire Enterprise", "Remedy", "Alphabet", "CRQ Gatekeeping", "Credential Remediation"],
   },
@@ -281,9 +315,9 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Jun 2025 - Dec 2025",
     paragraphs: [
-      "Led the overhaul of the legacy NRE Graph tool frontend using HTML, CSS, JavaScript, and Python, building a custom design system aligned with CME Group standards that improved UX flow, boosted application load speeds, and supported internal customer requests.",
-      "Automated Google Cloud Platform (GCP) data uploads by developing Python scripts on a dedicated VM using smart concurrency so multiple data streams process simultaneously, bypassing bandwidth bottlenecks and doubling transfer speeds.",
-      "Delivered full-stack projects in a fully remote team environment while maintaining clear communication and consistent delivery.",
+      "Overhauled the legacy NRE Graph tool frontend using HTML, CSS, JavaScript, and Python with a custom CME-aligned design system.",
+      "Built concurrent Python scripts on a dedicated VM to automate GCP data uploads, bypassing bandwidth bottlenecks and doubling transfer speeds.",
+      "Delivered full-stack features in a fully remote Agile team environment.",
     ],
     tags: ["Python", "JavaScript", "HTML & CSS", "Smart Concurrency", "GCP", "Custom Design System"],
   },
@@ -293,9 +327,9 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Nov 2024 - Jun 2025",
     paragraphs: [
-      "CME Design System: Designed accessible, reusable core components in Figma (buttons, mobile menus, dropdowns, tooltips, accordions, interactive loaders) adhering to CME Group brand and accessibility standards.",
-      "CME Trading Simulator: Created wireframes, navigation bars, and specialised interface layouts for the CME Trading Simulator.",
-      "UI/UX Quality Assurance: Performed UI/UX QA across cross-team designs to keep visual consistency, presented design rationale to stakeholders, and iterated quickly within an Agile workflow.",
+      "Designed accessible, reusable components in Figma for the CME Design System (buttons, mobile menus, dropdowns, tooltips, accordions, loaders).",
+      "Created wireframes, navigation bars, and specialised workspace layouts for the CME Trading Simulator.",
+      "Performed cross-team UI/UX quality assurance and presented design rationale to stakeholders.",
     ],
     tags: ["Figma", "CME Design System", "CME Trading Simulator", "UI/UX QA", "Agile"],
   },
@@ -305,9 +339,9 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Sep 2024 - Nov 2024",
     paragraphs: [
-      "First apprentice rotation at CME Group, managing the full lifecycle of company laptops and desktops for Belfast-based staff.",
-      "Provisioned and configured Windows PCs and Apple Macs (using Jamf and Oomnitza) and provided end-to-end hardware and software troubleshooting for colleagues.",
-      "Managed hardware lifecycle decommissioning, including physical dismantling and certified data wiping.",
+      "Managed the full hardware lifecycle of company laptops and desktops for Belfast staff.",
+      "Provisioned Windows PCs and Apple Macs via Jamf and Oomnitza, resolving hardware and software support tickets.",
+      "Handled secure hardware decommissioning, physical dismantling, and certified data wiping.",
     ],
     tags: ["Windows", "macOS", "Jamf", "Oomnitza", "Endpoint Lifecycle", "Certified Data Wiping"],
   },
@@ -317,8 +351,8 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "Generation Innovation / DisplayNote",
     period: "Jul 2023",
     paragraphs: [
-      "Developed a product-related customer service chatbot prototype for DisplayNote, a Northern Ireland tech company, during the early days of AI adoption.",
-      "Pitched the working prototype and business concept directly to the CEO, receiving positive feedback and congratulations on the initiative and presentation.",
+      "Built a product customer-service chatbot prototype for Northern Ireland tech company DisplayNote.",
+      "Pitched the working prototype and business case directly to the CEO.",
     ],
     tags: ["Chatbot Prototype", "Customer Service AI", "CEO Pitch"],
   },
@@ -328,43 +362,33 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "NI Civil Service / McDonald’s",
     period: "Jul 2022 - Sep 2024",
     paragraphs: [
-      "Northern Ireland Civil Service - IT Work Experience (Nov 2022): Completed an IT training course focused on accounting software and digital tech form creation services.",
-      "McDonald’s - Crew Member (Jul 2022 - Sep 2024): Built strong teamwork and communication skills in a fast-paced environment; earned Employee of the Month twice and Employee of the Quarter once.",
+      "Northern Ireland Civil Service (Nov 2022): Completed practical IT training in accounting software and digital form creation services.",
+      "McDonald’s Crew Member (Jul 2022 - Sep 2024): Awarded Employee of the Month twice and Employee of the Quarter once in a fast-paced team environment.",
     ],
     tags: ["Accounting & Form Services", "Employee of the Quarter", "2× Employee of the Month"],
   },
 ];
 
-export const projectEntries: AccordionEntry[] = [
+export const personalProjectEntries: AccordionEntry[] = [
   {
     id: "art-platform",
     title: "Full-Stack Art Platform & Adversarial ML Protection",
-    organisation: "My Personal Projects",
+    organisation: "Personal Project",
     period: "Current",
     paragraphs: [
-      "Developing a full-stack social platform for artists alongside AI-driven workflows using machine learning.",
-      "Uses PyTorch and Hugging Face models to apply adversarial noise (Glaze/Nightshade concept) to uploaded artwork to protect it from AI scraping.",
+      "Building a full-stack social platform for artists integrated with machine learning protection workflows.",
+      "Uses PyTorch and Hugging Face models to apply adversarial noise (Glaze/Nightshade concept) so uploaded artwork resists AI scraping.",
     ],
     tags: ["PyTorch", "Hugging Face", "Adversarial ML", "Python", "Full-Stack"],
   },
   {
-    id: "desk-booking",
-    title: "Enterprise Desk Booking System & 3D Floor Maps",
-    organisation: "CME Group",
-    period: "Jun 2026 - Dec 2026",
-    paragraphs: [
-      "Co-led the user research and Figma prototyping for an enterprise desk-booking app tailored to the Belfast office, featuring interactive 3D cartoon-style floor maps, bulk/recurring booking, and space utilisation metrics.",
-      "Presented research insights, workflow demonstrations, and final UI designs to the Senior Director of Product Management.",
-    ],
-    tags: ["Figma", "CME Design System", "3D Floor Maps", "User Research"],
-  },
-  {
     id: "portfolio-ds",
     title: "Portfolio Website & Simple Portfolio Design System",
-    organisation: "My Personal Projects / Figma Community",
+    organisation: "Personal Project / Figma Community",
     period: "2026",
     paragraphs: [
-      "Built a custom personal CV website to showcase the complete design-to-development lifecycle. Designed and published the Simple Portfolio Design System and wireframes on Figma Community, translating them directly into a reusable React + TypeScript component library.",
+      "Designed and published the Simple Portfolio Design System and wireframes on Figma Community with dark and light mode token collections.",
+      "Built a reusable React + TypeScript component package and this interactive portfolio website directly from the Figma tokens.",
     ],
     tags: ["Figma Community", "React", "TypeScript", "Simple Portfolio Design System"],
     link: {
@@ -375,32 +399,35 @@ export const projectEntries: AccordionEntry[] = [
   {
     id: "appscripts-api",
     title: "Software Request Form AppScripts API",
-    organisation: "Automation & Internal Tooling",
+    organisation: "Automation & Tooling",
     period: "Project",
     paragraphs: [
-      "Worked on a Google App Scripts API integration for automating Software Request Form submissions and workflow handling.",
+      "Built a Google App Scripts API integration to automate Software Request Form submissions and approval routing.",
     ],
     tags: ["Google App Scripts", "API Integration", "Workflow Automation"],
   },
+];
+
+export const schoolProjectEntries: AccordionEntry[] = [
   {
     id: "vr-school-tour",
     title: "Carson Award VR Tour Team - 360° Virtual Reality School Tour",
     organisation: "Lagan College / £1,000 IT Grant",
     period: "Award Winner",
     paragraphs: [
-      "Worked in a pair with another student to develop an immersive, student-controlled 360-degree VR school tour with optional ambient sound features to ease student anxiety ahead of school Open Days.",
-      "Presented the finished tour to educational stakeholders in Northern Ireland, securing a £1,000 IT grant for the school.",
+      "Co-developed an interactive, student-controlled 360-degree VR school tour with optional ambient audio to help ease anxiety before Open Days.",
+      "Presented the finished tour to Northern Ireland education stakeholders, securing a £1,000 IT grant for the school.",
     ],
     tags: ["360° VR", "Ambient Audio", "Carson Award", "£1,000 IT Grant"],
   },
   {
     id: "foldable-headphones",
     title: "Young Engineers Award - Foldable Speaker Headphones & STEM Outreach",
-    organisation: "Young Engineers / CME Group STEM",
+    organisation: "Young Engineers / STEM Outreach",
     period: "1st Place Winner",
     paragraphs: [
-      "Young Engineers Award Winner (1st Place in age group): Designed foldable headphones that convert into freestanding speakers.",
-      "CME Group STEM Outreach: Regularly represent CME Group at local schools and tech industry events, delivering talks to prospective students on technology careers and the apprenticeship route.",
+      "Won 1st Place in age group at the Young Engineers Awards for designing foldable headphones that convert into freestanding speakers.",
+      "Regularly represent CME Group at school and industry STEM outreach events, speaking to students about technology careers and apprenticeships.",
     ],
     tags: ["1st Place", "Product Design", "STEM Outreach", "Public Speaking"],
   },
@@ -413,7 +440,8 @@ export const educationEntries: EducationEntry[] = [
     qualification: "BSc (Hons) Computing Systems",
     period: "Sep 2024 - Present",
     details: [
-      "Completing Year 1 and Year 2 modules alongside the CME Group Higher Level Apprenticeship, covering software engineering, databases, networking, and enterprise computing systems.",
+      "Completing Year 1 and Year 2 modules alongside the CME Group Higher Level Apprenticeship.",
+      "Core focus on software engineering, relational databases, networking, and enterprise computing systems.",
     ],
   },
   {
@@ -423,8 +451,8 @@ export const educationEntries: EducationEntry[] = [
     period: "Sep 2020 - Jun 2024",
     highlight: "100% AS Coursework (CCEA Exemplary)",
     details: [
-      "A Levels (2022 - 2024): Art, Software Systems Development (AS coursework awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework), and Physics.",
-      "GCSEs (2020 - 2022): 1 A*, 7 As, 1 B, including A in Computer Science, A in Maths and Statistics, A in Physics, and B in English Language.",
+      "A Levels (2022 - 2024): Art, Software Systems Development (100% AS coursework, flagged by CCEA as exemplary), and Physics.",
+      "GCSEs (2020 - 2022): 1 A*, 7 As, 1 B (including A in Computer Science, A in Maths & Statistics, and A in Physics).",
     ],
   },
 ];

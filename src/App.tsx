@@ -25,8 +25,11 @@ import {
   heroContent,
   interestItems,
   navigationItems,
-  projectEntries,
+  personalProjectEntries,
+  schoolProjectEntries,
   skills,
+  topSocialBadges,
+  type AccordionEntry,
 } from "./data/portfolio";
 
 const confettiPieces = [
@@ -47,6 +50,58 @@ const confettiPieces = [
   { tx: "-18px", ty: "-32px", rot: "125deg", color: "#335959", delay: "35ms", wide: false },
   { tx: "18px", ty: "-28px", rot: "-135deg", color: "#ffffff", delay: "0ms", wide: true },
 ];
+
+function AccordionEntryList({ entries }: { entries: AccordionEntry[] }) {
+  return (
+    <div className="portfolio-accordion-list">
+      {entries.map((entry, index) => (
+        <Accordion
+          key={entry.id}
+          title={entry.title}
+          defaultOpen={index === 0}
+        >
+          <div className="portfolio-entry-body">
+            <div className="portfolio-entry-meta">
+              <Badge variant="accent">{entry.organisation}</Badge>
+              <Badge variant="default">{entry.period}</Badge>
+            </div>
+            <ul className="portfolio-bullet-list">
+              {entry.paragraphs.map((paragraph, pIndex) => (
+                <li key={pIndex} className="portfolio-bullet-item">
+                  <Text as="span" variant="body" tone="secondary">
+                    {paragraph}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+            <div className="portfolio-tag-row">
+              {entry.tags.map((tag) => (
+                <Badge key={tag} variant="subtle">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            {entry.link && (
+              <div>
+                <a
+                  href={entry.link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ds-btn ds-btn--secondary ds-btn--small"
+                >
+                  <span>{entry.link.label}</span>
+                  <span className="ds-btn__icon">
+                    <ArrowUpRightSquareIcon size={16} />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+        </Accordion>
+      ))}
+    </div>
+  );
+}
 
 function PortfolioPage() {
   const { theme, toggleTheme } = useTheme();
@@ -352,6 +407,21 @@ function PortfolioPage() {
       <main className="portfolio-shell">
         <section id="home" className="portfolio-hero">
           <div className="portfolio-hero__left">
+            <div className="portfolio-hero__socials" aria-label="Social links">
+              {topSocialBadges.map((social) => (
+                <a
+                  key={social.id}
+                  href={social.href}
+                  target={social.external ? "_blank" : undefined}
+                  rel={social.external ? "noreferrer" : undefined}
+                  className="ds-badge ds-badge--subtle portfolio-social-badge"
+                >
+                  <span>{social.label}</span>
+                  {social.external && <ArrowUpRightSquareIcon size={13} />}
+                </a>
+              ))}
+            </div>
+
             <Badge variant="accent">{heroContent.roleBadge}</Badge>
             <Heading level="display">{heroContent.greeting}</Heading>
             <Text
@@ -374,20 +444,41 @@ function PortfolioPage() {
           </div>
 
           <Panel padding="md" className="portfolio-hero__about">
-            <Heading level="section">{heroContent.aboutTitle}</Heading>
-            <div className="portfolio-copy-stack">
-              {heroContent.aboutParagraphs.map((paragraph, index) => (
-                <Text key={index} variant="body" tone="secondary">
-                  {paragraph}
-                </Text>
-              ))}
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                {heroContent.aboutTitle}
+              </Heading>
             </div>
+            <ul className="portfolio-bullet-list">
+              {heroContent.aboutParagraphs.map((paragraph, index) => (
+                <li key={index} className="portfolio-bullet-item">
+                  <Text as="span" variant="body" tone="secondary">
+                    {paragraph}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </Panel>
+        </section>
+
+        <section id="experience" data-reveal>
+          <Panel padding="lg" className="portfolio-section-panel">
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                My Job Experience
+              </Heading>
+            </div>
+            <AccordionEntryList entries={experienceEntries} />
           </Panel>
         </section>
 
         <section id="skills" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">What Skills I Have</Heading>
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                What Skills I Have
+              </Heading>
+            </div>
             <div className="portfolio-skills-layout">
               <div
                 className="portfolio-skills-grid"
@@ -435,13 +526,15 @@ function PortfolioPage() {
                 className="portfolio-skills-detail"
               >
                 <div className="portfolio-skill-detail-body">
-                  <div className="portfolio-copy-stack">
+                  <ul className="portfolio-bullet-list">
                     {selectedSkill.description.map((paragraph, index) => (
-                      <Text key={index} variant="body" tone="secondary">
-                        {paragraph}
-                      </Text>
+                      <li key={index} className="portfolio-bullet-item">
+                        <Text as="span" variant="body" tone="secondary">
+                          {paragraph}
+                        </Text>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
                   <Divider />
 
@@ -463,111 +556,33 @@ function PortfolioPage() {
           </Panel>
         </section>
 
-        <section id="experience" data-reveal>
+        <section id="projects" className="portfolio-projects-stack" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">My Job Experience</Heading>
-            <div className="portfolio-accordion-list">
-              {experienceEntries.map((entry, index) => (
-                <Accordion
-                  key={entry.id}
-                  title={entry.title}
-                  defaultOpen={index === 0}
-                >
-                  <div className="portfolio-entry-body">
-                    <div className="portfolio-entry-meta">
-                      <Badge variant="accent">{entry.organisation}</Badge>
-                      <Badge variant="default">{entry.period}</Badge>
-                    </div>
-                    <div className="portfolio-copy-stack">
-                      {entry.paragraphs.map((paragraph, pIndex) => (
-                        <Text key={pIndex} variant="body" tone="secondary">
-                          {paragraph}
-                        </Text>
-                      ))}
-                    </div>
-                    <div className="portfolio-tag-row">
-                      {entry.tags.map((tag) => (
-                        <Badge key={tag} variant="subtle">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    {entry.link && (
-                      <div>
-                        <a
-                          href={entry.link.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="ds-btn ds-btn--secondary ds-btn--small"
-                        >
-                          <span>{entry.link.label}</span>
-                          <span className="ds-btn__icon">
-                            <ArrowUpRightSquareIcon size={16} />
-                          </span>
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                </Accordion>
-              ))}
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                Projects
+              </Heading>
             </div>
+            <AccordionEntryList entries={personalProjectEntries} />
           </Panel>
-        </section>
 
-        <section id="projects" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">Projects</Heading>
-            <div className="portfolio-accordion-list">
-              {projectEntries.map((entry, index) => (
-                <Accordion
-                  key={entry.id}
-                  title={entry.title}
-                  defaultOpen={index === 0}
-                >
-                  <div className="portfolio-entry-body">
-                    <div className="portfolio-entry-meta">
-                      <Badge variant="accent">{entry.organisation}</Badge>
-                      <Badge variant="default">{entry.period}</Badge>
-                    </div>
-                    <div className="portfolio-copy-stack">
-                      {entry.paragraphs.map((paragraph, pIndex) => (
-                        <Text key={pIndex} variant="body" tone="secondary">
-                          {paragraph}
-                        </Text>
-                      ))}
-                    </div>
-                    <div className="portfolio-tag-row">
-                      {entry.tags.map((tag) => (
-                        <Badge key={tag} variant="subtle">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    {entry.link && (
-                      <div>
-                        <a
-                          href={entry.link.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="ds-btn ds-btn--secondary ds-btn--small"
-                        >
-                          <span>{entry.link.label}</span>
-                          <span className="ds-btn__icon">
-                            <ArrowUpRightSquareIcon size={16} />
-                          </span>
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                </Accordion>
-              ))}
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                School Projects
+              </Heading>
             </div>
+            <AccordionEntryList entries={schoolProjectEntries} />
           </Panel>
         </section>
 
         <section id="education" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">Education</Heading>
+            <div className="portfolio-section-header">
+              <Heading level="section" className="portfolio-section-heading">
+                Education
+              </Heading>
+            </div>
             <div className="portfolio-education-grid">
               {educationEntries.map((edu) => (
                 <TextBox
@@ -587,11 +602,15 @@ function PortfolioPage() {
                         <Badge variant="subtle">{edu.highlight}</Badge>
                       )}
                     </div>
-                    {edu.details.map((paragraph, index) => (
-                      <Text key={index} variant="body" tone="secondary">
-                        {paragraph}
-                      </Text>
-                    ))}
+                    <ul className="portfolio-bullet-list">
+                      {edu.details.map((paragraph, index) => (
+                        <li key={index} className="portfolio-bullet-item">
+                          <Text as="span" variant="body" tone="secondary">
+                            {paragraph}
+                          </Text>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </TextBox>
               ))}
@@ -602,7 +621,11 @@ function PortfolioPage() {
         <div className="portfolio-bottom-row" data-reveal>
           <section id="other">
             <Panel padding="md" className="portfolio-card">
-              <Heading level="section">Awards and Interests</Heading>
+              <div className="portfolio-section-header">
+                <Heading level="section" className="portfolio-section-heading">
+                  Awards and Interests
+                </Heading>
+              </div>
 
               <div className="portfolio-awards-grid">
                 {awardEntries.map((award) => (
@@ -646,7 +669,11 @@ function PortfolioPage() {
 
           <section id="contact">
             <Panel padding="md" className="portfolio-card">
-              <Heading level="section">{contactsContent.title}</Heading>
+              <div className="portfolio-section-header">
+                <Heading level="section" className="portfolio-section-heading">
+                  {contactsContent.title}
+                </Heading>
+              </div>
               <TextBox variant="titleless" padding="comfortable">
                 <div className="portfolio-contacts-list">
                   <div className="portfolio-contact-block">
