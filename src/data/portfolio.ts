@@ -31,7 +31,7 @@ export interface EducationEntry {
   institution: string;
   qualification: string;
   period: string;
-  highlight: string;
+  highlight?: string;
   details: string[];
 }
 
@@ -65,7 +65,7 @@ export const heroContent = {
   aboutTitle: "Who am I",
   aboutParagraphs: [
     "I am an IT Higher Level Apprentice (HLA) at CME Group with a creative edge and a strong interest in future-focused technology. I’m a fast learner, staying up to date with the latest tech trends and working well in Agile environments with clear requirements, defined tasks, and daily standups.",
-    "Rotating across backend market data development, full-stack tooling, vulnerability compliance, and UI/UX at CME Group while studying BSc Computing Systems at Ulster University (Predicted 1st) has given me hands-on experience across both software engineering and interface design.",
+    "Rotating across backend market data development, full-stack tooling, vulnerability compliance, and UI/UX at CME Group while studying BSc Computing Systems at Ulster University has given me hands-on experience across both software engineering and interface design.",
   ],
 };
 
@@ -98,9 +98,9 @@ export const skills: SkillItem[] = [
     icon: "./icons/csharp.svg",
     category: "Languages",
     description: [
-      "Developed object-oriented software systems in C#, including A-Level System Software Design where my AS-Level coursework was awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework.",
+      "Developed object-oriented software systems in C#, including A-Level Software Systems Development where my AS-Level coursework was awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework.",
     ],
-    appliedIn: ["CCEA Exemplary Coursework (100%)", "System Software Design", "BSc Computing Systems"],
+    appliedIn: ["CCEA Exemplary Coursework (100%)", "Software Systems Development", "BSc Computing Systems"],
   },
   {
     id: "javascript",
@@ -210,7 +210,7 @@ export const skills: SkillItem[] = [
     icon: "./icons/grpc.svg",
     category: "APIs & Contract Testing",
     description: [
-      "Supported real-time market data delivery over WebSockets and maintained backward compatibility across gRPC microservices by adding Pact API contract testing into the deployment pipeline to prevent race conditions.",
+      "Supported real-time market data delivery over WebSockets and maintained backwards compatibility across gRPC microservices by adding Pact API contract testing into the deployment pipeline to prevent race conditions.",
     ],
     appliedIn: ["MDRT WebSockets & gRPC", "Pact Contract Testing"],
   },
@@ -246,7 +246,7 @@ export const experienceEntries: AccordionEntry[] = [
       "Worked in a story- and ticket-based Agile team. Configured NATS JetStream and Key-Value stores deployed on Google Kubernetes Engine (GKE), enabling the platform to stream real-time market data to customers via WebSockets and Google Pub/Sub.",
       "Worked on optimising Java-based data processing models for the MDRT billing application interacting with high-volume BigQuery log records. After my changes were implemented, execution time was reduced by 76%.",
       "Updated CI/CD pipelines using custom Argo Workflows (YAML) and Google Jib (Artifact Registry), resolving Java 17 runtime issues and unblocking deployments.",
-      "Implemented Pact API contract testing across deployments to eliminate race conditions and maintain gRPC microservice backward compatibility, managed Kubernetes configurations to separate local development builds from secure cluster deployments, and maintained applications migrated from on-prem servers to GCP (creating Pub/Sub channels, BigQuery, GKE, Cloud Logging, and Cloud Monitoring).",
+      "Implemented Pact API contract testing across deployments to eliminate race conditions and maintain gRPC microservice backwards compatibility, managed Kubernetes configurations to separate local development builds from secure cluster deployments, and maintained applications migrated from on-prem servers to GCP (creating Pub/Sub channels, BigQuery, GKE, Cloud Logging, and Cloud Monitoring).",
     ],
     tags: ["Java 17", "NATS JetStream", "Key-Value Stores", "GKE", "WebSockets", "Pub/Sub", "BigQuery", "Argo Workflows", "Google Jib", "Pact", "gRPC"],
   },
@@ -259,7 +259,7 @@ export const experienceEntries: AccordionEntry[] = [
       "Worked alongside one other apprentice to lead the UX/UI redesign of an enterprise desk-booking system, replacing a legacy tool to improve navigation and visual clarity from initial discovery through to final high-fidelity delivery.",
       "Ran user research by designing internal staff surveys, conducting competitor analysis, and turning the findings into clear project requirements documentation.",
       "Created wireframes and interactive high-fidelity prototypes in Figma using the CME Design System, introducing 3D cartoon-style floor maps, bulk/recurring booking flows, and space utilisation metrics tailored to the Belfast office.",
-      "Presented the end-to-end research insights, workflow demonstrations, and final UI prototypes to the Sr. Director of Product Management and Executive Leadership.",
+      "Presented the end-to-end research insights, workflow demonstrations, and final UI prototypes to the Senior Director of Product Management and Executive Leadership.",
     ],
     tags: ["Figma", "CME Design System", "User Research", "3D Floor Maps", "Executive Presentation"],
   },
@@ -354,7 +354,7 @@ export const projectEntries: AccordionEntry[] = [
     period: "Jun 2026 - Dec 2026",
     paragraphs: [
       "Co-led the user research and Figma prototyping for an enterprise desk-booking app tailored to the Belfast office, featuring interactive 3D cartoon-style floor maps, bulk/recurring booking, and space utilisation metrics.",
-      "Presented research insights, workflow demonstrations, and final UI designs to the Sr. Director of Product Management.",
+      "Presented research insights, workflow demonstrations, and final UI designs to the Senior Director of Product Management.",
     ],
     tags: ["Figma", "CME Design System", "3D Floor Maps", "User Research"],
   },
@@ -412,7 +412,6 @@ export const educationEntries: EducationEntry[] = [
     institution: "Ulster University, Belfast",
     qualification: "BSc (Hons) Computing Systems",
     period: "Sep 2024 - Present",
-    highlight: "Predicted Grade: 1st Class Honours",
     details: [
       "Completing Year 1 and Year 2 modules alongside the CME Group Higher Level Apprenticeship, covering software engineering, databases, networking, and enterprise computing systems.",
     ],
@@ -424,7 +423,7 @@ export const educationEntries: EducationEntry[] = [
     period: "Sep 2020 - Jun 2024",
     highlight: "100% AS Coursework (CCEA Exemplary)",
     details: [
-      "A Levels (2022 - 2024): Art, System Software Design (AS coursework awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework), and Physics.",
+      "A Levels (2022 - 2024): Art, Software Systems Development (AS coursework awarded 100% and flagged at CCEA Case Study meetings as exemplary coursework), and Physics.",
       "GCSEs (2020 - 2022): 1 A*, 7 As, 1 B, including A in Computer Science, A in Maths and Statistics, A in Physics, and B in English Language.",
     ],
   },
@@ -482,7 +481,7 @@ export const contactsContent = {
   emailValue: "lewis.dempster@hotmail.com",
   linkedinLabel: "LinkedIn:",
   linkedinName: "Lewis Dempster - IT HLA @ CME Group",
-  linkedinHandle: "linkedin.com/in/lewis-dempster",
+  linkedinHandle: "www.linkedin.com/in/lewis-dempster-b884672b3",
   githubLabel: "GitHub:",
   githubHandle: "github.com/LCD180",
 };

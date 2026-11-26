@@ -387,7 +387,7 @@ function PortfolioPage() {
 
         <section id="skills" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">What Skill I Have</Heading>
+            <Heading level="section">What Skills I Have</Heading>
             <div className="portfolio-skills-layout">
               <div
                 className="portfolio-skills-grid"
@@ -465,7 +465,7 @@ function PortfolioPage() {
 
         <section id="experience" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <Heading level="section">My Job experience</Heading>
+            <Heading level="section">My Job Experience</Heading>
             <div className="portfolio-accordion-list">
               {experienceEntries.map((entry, index) => (
                 <Accordion
@@ -583,7 +583,9 @@ function PortfolioPage() {
                   <div className="portfolio-copy-stack">
                     <div className="portfolio-tag-row">
                       <Badge variant="accent">{edu.qualification}</Badge>
-                      <Badge variant="subtle">{edu.highlight}</Badge>
+                      {edu.highlight && (
+                        <Badge variant="subtle">{edu.highlight}</Badge>
+                      )}
                     </div>
                     {edu.details.map((paragraph, index) => (
                       <Text key={index} variant="body" tone="secondary">
@@ -600,7 +602,7 @@ function PortfolioPage() {
         <div className="portfolio-bottom-row" data-reveal>
           <section id="other">
             <Panel padding="md" className="portfolio-card">
-              <Heading level="section">Awards and Interest</Heading>
+              <Heading level="section">Awards and Interests</Heading>
 
               <div className="portfolio-awards-grid">
                 {awardEntries.map((award) => (
