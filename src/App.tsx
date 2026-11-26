@@ -170,9 +170,9 @@ function PortfolioPage() {
   );
   const [openPersonalProjectId, setOpenPersonalProjectId] = useState<
     string | null
-  >(personalProjectEntries[0]?.id ?? null);
+  >(null);
   const [openSchoolProjectId, setOpenSchoolProjectId] = useState<string | null>(
-    schoolProjectEntries[0]?.id ?? null,
+    null,
   );
   const [emailCopied, setEmailCopied] = useState(false);
   const [confettiBurstId, setConfettiBurstId] = useState(0);
@@ -509,18 +509,34 @@ function PortfolioPage() {
         <section id="home" className="portfolio-hero">
           <div className="portfolio-hero__left">
             <div className="portfolio-hero__socials" aria-label="Social links">
-              {topSocialBadges.map((social) => (
-                <a
-                  key={social.id}
-                  href={social.href}
-                  target={social.external ? "_blank" : undefined}
-                  rel={social.external ? "noreferrer" : undefined}
-                  className="ds-badge ds-badge--subtle portfolio-social-badge"
-                >
-                  <span>{social.label}</span>
-                  {social.external && <ArrowUpRightSquareIcon size={13} />}
-                </a>
-              ))}
+              {topSocialBadges.map((social) =>
+                social.id === "email" ? (
+                  <button
+                    key={social.id}
+                    type="button"
+                    onClick={handleCopyEmail}
+                    aria-live="polite"
+                    className={
+                      emailCopied
+                        ? "ds-badge ds-badge--accent portfolio-social-badge"
+                        : "ds-badge ds-badge--subtle portfolio-social-badge"
+                    }
+                  >
+                    <span>{emailCopied ? "Email Copied!" : social.label}</span>
+                  </button>
+                ) : (
+                  <a
+                    key={social.id}
+                    href={social.href}
+                    target={social.external ? "_blank" : undefined}
+                    rel={social.external ? "noreferrer" : undefined}
+                    className="ds-badge ds-badge--subtle portfolio-social-badge"
+                  >
+                    <span>{social.label}</span>
+                    {social.external && <ArrowUpRightSquareIcon size={13} />}
+                  </a>
+                ),
+              )}
             </div>
 
             <Heading level="display">{heroContent.greeting}</Heading>
