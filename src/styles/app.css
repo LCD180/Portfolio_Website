@@ -93,7 +93,7 @@ body {
   padding: 8px 64px 0;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 36px;
 }
 
 .portfolio-page section[id] {
@@ -162,8 +162,6 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--ds-panel-border);
 }
 
 .portfolio-section-header--wrap {
@@ -290,17 +288,17 @@ body {
 
 .portfolio-accordion-list--timeline {
   position: relative;
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
 .portfolio-accordion-list--timeline::before {
   content: "";
   position: absolute;
-  left: 7px;
-  top: 18px;
-  bottom: 18px;
-  width: 2px;
-  background-color: var(--ds-action-secondary-default);
+  left: 5px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background-color: var(--ds-border-default);
 }
 
 .portfolio-timeline-item {
@@ -309,21 +307,21 @@ body {
 
 .portfolio-timeline-node {
   position: absolute;
-  left: -21px;
-  top: 22px;
-  width: 10px;
-  height: 10px;
+  left: -18px;
+  top: 24px;
+  width: 7px;
+  height: 7px;
   background-color: var(--ds-panel-bg);
-  border: 2px solid var(--ds-action-secondary-default);
+  border: 1.5px solid var(--ds-border-default);
   box-sizing: border-box;
   transition:
     background-color 160ms ease,
-    transform 160ms ease;
+    border-color 160ms ease;
 }
 
 .portfolio-timeline-item--open .portfolio-timeline-node {
   background-color: var(--ds-action-secondary-default);
-  transform: scale(1.15);
+  border-color: var(--ds-action-secondary-default);
 }
 
 .portfolio-skills-layout {
@@ -481,23 +479,13 @@ body {
 .portfolio-interests-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 20px;
 }
 
 .portfolio-interest-item {
   display: flex;
   flex-direction: column;
-  padding: 12px;
-  background-color: var(--ds-panel-bg);
-  border: 1px solid var(--ds-panel-border);
-  border-radius: var(--ds-radius-panel);
-}
-
-.portfolio-interest-item__content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  gap: 4px;
 }
 
 .portfolio-skills-detail {

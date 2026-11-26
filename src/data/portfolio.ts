@@ -81,7 +81,7 @@ export const skillFilterGroups: SkillFilterGroup[] = [
   { id: "languages", label: "Languages" },
   { id: "frontend", label: "Frontend & UI" },
   { id: "cloud", label: "Cloud & DevOps" },
-  { id: "data", label: "Data, APIs & ML" },
+  { id: "data", label: "Data & Messaging" },
 ];
 
 export const topSocialBadges: SocialBadgeLink[] = [
@@ -105,7 +105,7 @@ export const topSocialBadges: SocialBadgeLink[] = [
   },
   {
     id: "email",
-    label: "lewis.dempster@hotmail.com",
+    label: "Email",
     href: "mailto:lewis.dempster@hotmail.com",
   },
 ];
@@ -118,9 +118,8 @@ export const heroContent = {
   ctaLabel: "View Experience",
   aboutTitle: "Who am I",
   aboutParagraphs: [
-    "Apprenticeship & Degree: IT Higher Level Apprentice (HLA) at CME Group studying BSc (Hons) Computing Systems at Ulster University.",
-    "Cross-Team Experience: Rotated across backend market data engineering, full-stack web tooling, vulnerability compliance, and UI/UX design systems.",
-    "Agile Delivery: Fast learner who thrives in ticket-based Agile teams with clear requirements and daily standups.",
+    "I am an IT Higher Level Apprentice at CME Group studying BSc (Hons) Computing Systems at Ulster University, with a creative edge and a strong interest in future-focused technology.",
+    "Rotating across backend market data development, full-stack tooling, vulnerability compliance, and UI/UX design in Agile teams has given me hands-on experience across both software engineering and interface design.",
   ],
 };
 
@@ -132,10 +131,10 @@ export const skills: SkillItem[] = [
     category: "Languages & Backend",
     filterGroup: "languages",
     description: [
-      "76% Faster Billing: Optimised Java data processing models for the Market Data Real Time (MDRT) billing application querying BigQuery logs.",
-      "Java 17 Containers: Resolved runtime issues across containerised builds using Google Jib and Artifact Registry.",
+      "Optimised Java data processing models for the Market Data Real Time (MDRT) billing application querying BigQuery logs, cutting execution time by 76%.",
+      "Resolved Java 17 runtime issues across containerised builds using Google Jib and Artifact Registry.",
     ],
-    appliedIn: ["MDRT Billing Application", "Java 17 CI/CD Pipelines", "BSc Computing Systems"],
+    appliedIn: ["MDRT Billing Application", "BSc Computing Systems"],
   },
   {
     id: "python",
@@ -144,10 +143,10 @@ export const skills: SkillItem[] = [
     category: "Languages & ML",
     filterGroup: "languages",
     description: [
-      "2× Transfer Speed: Built a concurrent Python data upload script on a dedicated VM for continuous GCP transfers.",
-      "Full-Stack & ML: Used Python in the NRE Graph tool rebuild and in an adversarial machine learning artwork protection platform with PyTorch.",
+      "Built a concurrent Python data upload script on a dedicated VM for continuous GCP transfers, doubling transfer speeds.",
+      "Used Python in the NRE Graph tool rebuild and in an adversarial machine learning artwork protection platform with PyTorch.",
     ],
-    appliedIn: ["Concurrent GCP Data Upload", "NRE Graph Tool", "Adversarial ML Art Platform"],
+    appliedIn: ["Concurrent GCP Data Upload", "Adversarial ML Art Platform"],
   },
   {
     id: "csharp",
@@ -156,9 +155,9 @@ export const skills: SkillItem[] = [
     category: "Languages",
     filterGroup: "languages",
     description: [
-      "100% CCEA Score: Developed object-oriented software systems in C#, where my AS-Level Software Systems Development coursework scored 100% and was showcased by CCEA as exemplary work.",
+      "Developed object-oriented software systems in C#, where my AS-Level Software Systems Development coursework scored 100% and was showcased by CCEA as exemplary work.",
     ],
-    appliedIn: ["CCEA Exemplary Coursework (100%)", "Software Systems Development", "BSc Computing Systems"],
+    appliedIn: ["Software Systems Development", "BSc Computing Systems"],
   },
   {
     id: "javascript",
@@ -167,10 +166,10 @@ export const skills: SkillItem[] = [
     category: "Frontend & Fullstack",
     filterGroup: "languages",
     description: [
-      "NRE Tool Rebuild: Rebuilt the legacy Network Reliability Engineering (NRE) Graph tool frontend, improving UX flow and load speeds.",
-      "Libraries & APIs: Built React component libraries and worked on an API for Software Request Form AppScripts.",
+      "Rebuilt the legacy Network Reliability Engineering (NRE) Graph tool frontend, improving UX flow and load speeds.",
+      "Built React component libraries and worked on an API for Software Request Form AppScripts.",
     ],
-    appliedIn: ["NRE Graph Tool Overhaul", "Simple Portfolio Design System", "Software Request Form AppScripts"],
+    appliedIn: ["NRE Graph Tool Overhaul", "Simple Portfolio Design System"],
   },
   {
     id: "html5",
@@ -179,9 +178,9 @@ export const skills: SkillItem[] = [
     category: "Frontend",
     filterGroup: "frontend",
     description: [
-      "Semantic Interfaces: Built accessible web interfaces for the NRE Graph tool rebuild, custom design system components, and digital form workflows.",
+      "Built accessible, semantic web interfaces for the NRE Graph tool rebuild, custom design system components, and digital form workflows.",
     ],
-    appliedIn: ["NRE Graph Tool", "Portfolio Web App", "Digital Form Services"],
+    appliedIn: ["NRE Graph Tool", "Portfolio Web App"],
   },
   {
     id: "css3",
@@ -190,7 +189,7 @@ export const skills: SkillItem[] = [
     category: "Frontend & Design Systems",
     filterGroup: "frontend",
     description: [
-      "Token Architecture: Translated Figma token collections into CSS custom properties supporting dark and light modes, responsive layouts, and fluid animations.",
+      "Translated Figma token collections into CSS custom properties supporting dark and light modes, responsive layouts, and fluid animations.",
     ],
     appliedIn: ["Simple Portfolio Design System", "NRE Custom Design System"],
   },
@@ -201,7 +200,7 @@ export const skills: SkillItem[] = [
     category: "Data & Analytics",
     filterGroup: "data",
     description: [
-      "High-Volume Queries: Queried and optimised large log and billing datasets across relational databases and Google BigQuery for real-time market data billing.",
+      "Queried and optimised large log and billing datasets across relational databases and Google BigQuery for real-time market data billing.",
     ],
     appliedIn: ["MDRT BigQuery Billing", "Database Systems"],
   },
@@ -212,7 +211,7 @@ export const skills: SkillItem[] = [
     category: "Cloud & DevOps",
     filterGroup: "cloud",
     description: [
-      "Declarative Pipelines: Authored Kubernetes cluster manifests and custom Argo Workflows CI/CD pipeline definitions separating local builds from cluster deployments.",
+      "Authored Kubernetes cluster manifests and custom Argo Workflows CI/CD pipeline definitions separating local builds from cluster deployments.",
     ],
     appliedIn: ["Argo Workflows CI/CD", "GKE Cluster Configurations"],
   },
@@ -223,10 +222,10 @@ export const skills: SkillItem[] = [
     category: "UI/UX & Design Systems",
     filterGroup: "frontend",
     description: [
-      "Enterprise Design Systems: Designed reusable components for the CME Design System and interface layouts for the CME Trading Simulator.",
-      "3D Maps & Community Kit: Prototyped 3D floor maps for the CME Desk Booking System redesign and published the Simple Portfolio Design System on Figma Community.",
+      "Designed reusable components for the CME Design System and interface layouts for the CME Trading Simulator.",
+      "Prototyped 3D floor maps for the CME Desk Booking System redesign and published the Simple Portfolio Design System on Figma Community.",
     ],
-    appliedIn: ["CME Design System", "Desk Booking Redesign", "CME Trading Simulator", "Simple Portfolio Design System"],
+    appliedIn: ["CME Design System", "Desk Booking Redesign", "Simple Portfolio Design System"],
   },
   {
     id: "kubernetes",
@@ -235,7 +234,7 @@ export const skills: SkillItem[] = [
     category: "Cloud & DevOps",
     filterGroup: "cloud",
     description: [
-      "Cluster Workloads: Configured NATS JetStream clusters, Key-Value stores, and backend microservices on Google Kubernetes Engine (GKE).",
+      "Configured NATS JetStream clusters, Key-Value stores, and backend microservices on Google Kubernetes Engine (GKE).",
     ],
     appliedIn: ["MDRT Market Data Streaming", "GKE Environment Isolation"],
   },
@@ -246,9 +245,9 @@ export const skills: SkillItem[] = [
     category: "Cloud & DevOps",
     filterGroup: "cloud",
     description: [
-      "Cloud Migration: Migrated and maintained services from on-prem servers to GCP using Pub/Sub, GKE, BigQuery, Artifact Registry, Cloud Logging, and Cloud Monitoring.",
+      "Migrated and maintained services from on-prem servers to GCP using Pub/Sub, GKE, BigQuery, Artifact Registry, Cloud Logging, and Cloud Monitoring.",
     ],
-    appliedIn: ["On-Prem to Cloud Migration", "GCP Pub/Sub & BigQuery", "Concurrent VM Data Upload"],
+    appliedIn: ["On-Prem to Cloud Migration", "Concurrent VM Data Upload"],
   },
   {
     id: "argo",
@@ -257,9 +256,9 @@ export const skills: SkillItem[] = [
     category: "CI/CD Automation",
     filterGroup: "cloud",
     description: [
-      "CI/CD Modernisation: Modernised build pipelines using custom Argo Workflows and Google Jib (Artifact Registry), resolving Java 17 runtime issues.",
+      "Modernised build pipelines using custom Argo Workflows and Google Jib (Artifact Registry), resolving Java 17 runtime issues.",
     ],
-    appliedIn: ["MDRT CI/CD Modernisation", "Artifact Registry Builds"],
+    appliedIn: ["MDRT CI/CD Modernisation"],
   },
   {
     id: "nats",
@@ -268,7 +267,7 @@ export const skills: SkillItem[] = [
     category: "Real-Time Messaging",
     filterGroup: "data",
     description: [
-      "Market Data Streaming: Configured NATS JetStream and Key-Value stores on GKE to stream real-time market data to customers via WebSockets and Google Pub/Sub.",
+      "Configured NATS JetStream and Key-Value stores on GKE to stream real-time market data to customers via WebSockets and Google Pub/Sub.",
     ],
     appliedIn: ["MDRT Real-Time Market Data"],
   },
@@ -279,7 +278,7 @@ export const skills: SkillItem[] = [
     category: "APIs & Contract Testing",
     filterGroup: "data",
     description: [
-      "Contract Testing: Maintained backwards compatibility across gRPC microservices and WebSocket streams by integrating Pact API contract testing into deployment pipelines.",
+      "Maintained backwards compatibility across gRPC microservices and WebSocket streams by integrating Pact API contract testing into deployment pipelines.",
     ],
     appliedIn: ["MDRT WebSockets & gRPC", "Pact Contract Testing"],
   },
@@ -290,7 +289,7 @@ export const skills: SkillItem[] = [
     category: "Machine Learning",
     filterGroup: "data",
     description: [
-      "Adversarial Protection: Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise against automated image scraping.",
+      "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise against automated image scraping.",
     ],
     appliedIn: ["Full-Stack Art Platform & Adversarial ML"],
   },
@@ -301,9 +300,9 @@ export const skills: SkillItem[] = [
     category: "Mobile, Scripts & SecOps",
     filterGroup: "cloud",
     description: [
-      "Enterprise Tooling: Worked with Android Studio, an API for Software Request Form AppScripts, Tripwire Enterprise and Remedy (resolving 1,000+ cleartext password exposures), and Jamf/Oomnitza.",
+      "Worked with Android Studio, an API for Software Request Form AppScripts, Tripwire Enterprise and Remedy (resolving 1,000+ cleartext password exposures), and Jamf/Oomnitza.",
     ],
-    appliedIn: ["Tripwire Enterprise VMT", "Software Request Form AppScripts", "Android Studio"],
+    appliedIn: ["Tripwire Enterprise VMT", "Android Studio"],
   },
 ];
 
@@ -314,12 +313,11 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "May 2026 - Dec 2026",
     paragraphs: [
-      "Real-Time Streaming: Configured NATS JetStream and Key-Value stores on GKE to stream market data via WebSockets and Google Pub/Sub.",
-      "76% Faster Billing: Optimised Java billing models interacting with BigQuery log records, cutting execution time by 76%.",
-      "CI/CD Modernisation: Updated pipelines with Argo Workflows (YAML) and Google Jib (Artifact Registry) to resolve Java 17 runtime issues.",
-      "Contract Testing & Cloud: Added Pact API contract testing for gRPC backwards compatibility and supported on-prem to GCP migrations.",
+      "Configured NATS JetStream and Key-Value stores on GKE to stream real-time market data via WebSockets and Google Pub/Sub.",
+      "Optimised Java billing models interacting with BigQuery log records, reducing execution time by 76%.",
+      "Updated CI/CD pipelines with Argo Workflows and Google Jib, and added Pact API contract testing for gRPC services.",
     ],
-    tags: ["Java 17", "NATS JetStream", "Key-Value Stores", "GKE", "WebSockets", "Pub/Sub", "BigQuery", "Argo Workflows", "Google Jib", "Pact", "gRPC"],
+    tags: ["Java 17", "NATS JetStream", "GKE", "BigQuery", "Argo Workflows", "gRPC"],
   },
   {
     id: "cme-desk-booking-role",
@@ -327,12 +325,11 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Jun 2026 - Dec 2026",
     paragraphs: [
-      "UX/UI Co-Lead: Co-led the end-to-end redesign of CME Group's enterprise desk-booking system for the Belfast office.",
-      "User Research: Conducted staff surveys and competitor analysis, translating findings into structured project requirements.",
-      "3D Floor Maps: Designed interactive Figma prototypes using the CME Design System with 3D cartoon-style floor maps, bulk bookings, and utilisation metrics.",
-      "Executive Pitch: Presented research insights, live workflow demos, and final UI designs to the Senior Director of Product Management.",
+      "Co-led the UX/UI redesign of CME Group's enterprise desk-booking system through staff surveys and competitor research.",
+      "Designed interactive Figma prototypes with 3D cartoon-style floor maps, bulk bookings, and utilisation metrics.",
+      "Presented research insights, live demos, and final UI designs to the Senior Director of Product Management.",
     ],
-    tags: ["Figma", "CME Design System", "User Research", "3D Floor Maps", "Executive Presentation"],
+    tags: ["Figma", "CME Design System", "User Research", "3D Floor Maps"],
   },
   {
     id: "cme-vmt",
@@ -340,11 +337,11 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Dec 2025 - May 2026",
     paragraphs: [
-      "Infrastructure Compliance: Audited production releases, maintained server compliance, and resolved security vulnerabilities across CME infrastructure.",
-      "1,000+ Credentials Fixed: Led an initiative eliminating over 1,000 cleartext password exposures across the VMT environment.",
-      "Release Gatekeeping: Reviewed Change Requests (CRQs) using Tripwire Enterprise, Alphabet, and Remedy, authorising compliant releases and blocking high-risk changes.",
+      "Audited production releases, maintained server compliance, and resolved security vulnerabilities across CME infrastructure.",
+      "Led an initiative eliminating over 1,000 cleartext password exposures across the VMT environment.",
+      "Reviewed Change Requests (CRQs) using Tripwire Enterprise, Alphabet, and Remedy to authorise compliant deployments.",
     ],
-    tags: ["Tripwire Enterprise", "Remedy", "Alphabet", "CRQ Gatekeeping", "Credential Remediation"],
+    tags: ["Tripwire Enterprise", "Remedy", "CRQ Gatekeeping", "Security Compliance"],
   },
   {
     id: "cme-nre",
@@ -352,11 +349,10 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Jun 2025 - Dec 2025",
     paragraphs: [
-      "Frontend Overhaul: Rebuilt the legacy NRE Graph tool frontend using HTML, CSS, JavaScript, and Python with a custom CME-aligned design system.",
-      "2× Faster GCP Uploads: Built concurrent Python scripts on a dedicated VM to automate GCP data transfers and bypass bandwidth bottlenecks.",
-      "Remote Agile Delivery: Delivered full-stack features and internal customer requests in a fully remote team environment.",
+      "Overhauled the legacy NRE Graph tool frontend using HTML, CSS, JavaScript, and Python with a custom design system.",
+      "Built concurrent Python scripts on a dedicated VM to automate GCP data uploads, doubling transfer speeds.",
     ],
-    tags: ["Python", "JavaScript", "HTML & CSS", "Smart Concurrency", "GCP", "Custom Design System"],
+    tags: ["Python", "JavaScript", "HTML & CSS", "GCP"],
   },
   {
     id: "cme-cx",
@@ -364,11 +360,10 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Nov 2024 - Jun 2025",
     paragraphs: [
-      "CME Design System: Designed accessible, reusable Figma components (buttons, mobile menus, dropdowns, tooltips, accordions, loaders).",
-      "CME Trading Simulator: Created wireframes, navigation bars, and specialised workspace layouts.",
-      "UI/UX Quality Assurance: Performed cross-team design QA to maintain visual consistency and presented rationale to stakeholders.",
+      "Designed accessible, reusable components in Figma for the CME Design System.",
+      "Created wireframes, navigation bars, and workspace layouts for the CME Trading Simulator and performed cross-team UI/UX QA.",
     ],
-    tags: ["Figma", "CME Design System", "CME Trading Simulator", "UI/UX QA", "Agile"],
+    tags: ["Figma", "CME Design System", "CME Trading Simulator", "UI/UX QA"],
   },
   {
     id: "cme-desktop",
@@ -376,20 +371,18 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "CME Group",
     period: "Sep 2024 - Nov 2024",
     paragraphs: [
-      "Hardware Lifecycle: Managed the full lifecycle of company laptops and desktops for Belfast staff during my first apprentice rotation.",
-      "Endpoint Provisioning: Configured Windows PCs and Apple Macs via Jamf and Oomnitza, resolving hardware and software tickets.",
-      "Secure Decommissioning: Handled physical hardware dismantling and certified data wiping.",
+      "Managed the full hardware lifecycle of company laptops and desktops for Belfast staff.",
+      "Provisioned Windows PCs and Apple Macs via Jamf and Oomnitza and handled certified data wiping.",
     ],
-    tags: ["Windows", "macOS", "Jamf", "Oomnitza", "Endpoint Lifecycle", "Certified Data Wiping"],
+    tags: ["Windows & macOS", "Jamf", "Oomnitza", "Endpoint Lifecycle"],
   },
   {
     id: "displaynote-work-exp",
     title: "IT Work Experience - Product Chatbot Prototype",
-    organisation: "Generation Innovation / DisplayNote",
+    organisation: "DisplayNote",
     period: "Jul 2023",
     paragraphs: [
-      "Chatbot Prototype: Built a product customer-service chatbot prototype for Northern Ireland tech company DisplayNote.",
-      "CEO Pitch: Pitched the working prototype and business concept directly to the CEO.",
+      "Built a product customer-service chatbot prototype for Northern Ireland tech company DisplayNote and pitched it directly to the CEO.",
     ],
     tags: ["Chatbot Prototype", "Customer Service Automation", "CEO Pitch"],
   },
@@ -399,10 +392,10 @@ export const experienceEntries: AccordionEntry[] = [
     organisation: "NI Civil Service / McDonald’s",
     period: "Jul 2022 - Sep 2024",
     paragraphs: [
-      "NI Civil Service (Nov 2022): Completed practical IT training in accounting software and digital form creation services.",
-      "McDonald’s (Jul 2022 - Sep 2024): Awarded Employee of the Month twice and Employee of the Quarter once in a fast-paced team environment.",
+      "Completed practical IT training at Northern Ireland Civil Service (Nov 2022) covering accounting software and digital form services.",
+      "Earned Employee of the Month twice and Employee of the Quarter once at McDonald’s (2022 - 2024).",
     ],
-    tags: ["Accounting & Form Services", "Employee of the Quarter", "2× Employee of the Month"],
+    tags: ["Digital Form Services", "Employee of the Quarter", "2× Employee of the Month"],
   },
 ];
 
@@ -413,23 +406,23 @@ export const personalProjectEntries: AccordionEntry[] = [
     organisation: "Personal Project",
     period: "Current",
     paragraphs: [
-      "Creator Platform: Building a full-stack social platform for artists integrated with machine learning protection workflows.",
-      "Adversarial Noise: Uses PyTorch and Hugging Face models (Glaze/Nightshade concept) so uploaded artwork resists automated image scraping.",
+      "Building a full-stack social platform for artists integrated with machine learning protection workflows.",
+      "Uses PyTorch and Hugging Face models (Glaze/Nightshade concept) so uploaded artwork resists automated image scraping.",
     ],
-    tags: ["PyTorch", "Hugging Face", "Adversarial ML", "Python", "Full-Stack"],
+    tags: ["PyTorch", "Hugging Face", "Python", "Full-Stack"],
   },
   {
     id: "portfolio-ds",
     title: "Portfolio Website & Simple Portfolio Design System",
-    organisation: "Personal Project / Figma Community",
+    organisation: "Figma Community",
     period: "2026",
     paragraphs: [
-      "Figma Community Kit: Designed and published the Simple Portfolio Design System and wireframes with dark and light mode token collections.",
-      "React Component Library: Built a reusable React + TypeScript package and this interactive portfolio website directly from the Figma tokens.",
+      "Designed and published the Simple Portfolio Design System and wireframes on Figma Community with dark and light mode tokens.",
+      "Built a reusable React + TypeScript component library and this portfolio website directly from the Figma tokens.",
     ],
-    tags: ["Figma Community", "React", "TypeScript", "Simple Portfolio Design System"],
+    tags: ["Figma Community", "React", "TypeScript", "Design Tokens"],
     link: {
-      label: "View Simple Portfolio Design System on Figma Community",
+      label: "View on Figma Community",
       url: designSystemInfo.figmaUrl,
     },
   },
@@ -478,24 +471,24 @@ export const schoolProjectEntries: AccordionEntry[] = [
   {
     id: "vr-school-tour",
     title: "Carson Award VR Tour Team - 360° Virtual Reality School Tour",
-    organisation: "Lagan College / £1,000 IT Grant",
-    period: "Award Winner",
+    organisation: "Lagan College",
+    period: "£1,000 IT Grant",
     paragraphs: [
-      "360° VR Experience: Co-developed an interactive, student-controlled VR school tour with optional ambient audio to ease anxiety before Open Days.",
-      "£1,000 IT Grant: Presented the finished tour to Northern Ireland education stakeholders, securing a £1,000 school IT grant.",
+      "Co-developed an interactive, student-controlled 360° VR school tour with optional ambient audio to ease anxiety before Open Days.",
+      "Presented the finished tour to Northern Ireland education stakeholders, securing a £1,000 school IT grant.",
     ],
-    tags: ["360° VR", "Ambient Audio", "Carson Award", "£1,000 IT Grant"],
+    tags: ["360° VR", "Ambient Audio", "Carson Award"],
   },
   {
     id: "foldable-headphones",
     title: "Young Engineers Award - Foldable Speaker Headphones & STEM Outreach",
-    organisation: "Young Engineers / STEM Outreach",
-    period: "1st Place Winner",
+    organisation: "Young Engineers",
+    period: "1st Place",
     paragraphs: [
-      "1st Place Product Design: Won 1st Place in age group at the Young Engineers Awards for designing foldable headphones that convert into freestanding speakers.",
-      "CME STEM Ambassador: Regularly represent CME Group at school and industry events, speaking to students about technology careers and apprenticeships.",
+      "Won 1st Place in age group for designing foldable headphones that convert into freestanding speakers.",
+      "Regularly represent CME Group at school and industry STEM outreach events, speaking to students about tech apprenticeships.",
     ],
-    tags: ["1st Place", "Product Design", "STEM Outreach", "Public Speaking"],
+    tags: ["1st Place", "Product Design", "STEM Outreach"],
   },
 ];
 
@@ -506,8 +499,7 @@ export const educationEntries: EducationEntry[] = [
     qualification: "BSc (Hons) Computing Systems",
     period: "Sep 2024 - Present",
     details: [
-      "Higher Level Apprenticeship: Completing Year 1 and Year 2 modules alongside full-time rotations at CME Group.",
-      "Core Modules: Software engineering, relational databases, computer networking, and enterprise computing systems.",
+      "Completing Year 1 and Year 2 modules alongside full-time rotations at CME Group, covering software engineering, databases, networking, and enterprise systems.",
     ],
   },
   {
@@ -517,8 +509,8 @@ export const educationEntries: EducationEntry[] = [
     period: "Sep 2020 - Jun 2024",
     highlight: "100% AS Coursework (CCEA Exemplary)",
     details: [
-      "A Levels (2022 - 2024): Art, Software Systems Development (100% AS coursework, flagged by CCEA as exemplary), and Physics.",
-      "GCSEs (2020 - 2022): 1 A*, 7 As, 1 B (including A in Computer Science, A in Maths & Statistics, and A in Physics).",
+      "A Levels: Art, Software Systems Development (100% AS coursework, flagged by CCEA as exemplary), and Physics.",
+      "GCSEs: 1 A*, 7 As, 1 B (including A in Computer Science, Maths & Statistics, and Physics).",
     ],
   },
 ];
@@ -529,14 +521,14 @@ export const awardEntries: AwardEntry[] = [
     title: "CCEA Exemplary AS-Level Coursework",
     badge: "100% Score",
     description:
-      "Awarded 100% in AS-Level Software Systems Development coursework and flagged at CCEA Case Study meetings as exemplary work.",
+      "Awarded 100% in AS-Level Software Systems Development coursework and flagged by CCEA as exemplary work.",
   },
   {
     id: "carson-award",
     title: "Carson Award Winner - 360° VR School Tour",
-    badge: "£1,000 IT Grant",
+    badge: "£1,000 Grant",
     description:
-      "Built a student-controlled 360° VR tour with optional ambient sound for anxious Open Day students, securing a £1,000 IT grant.",
+      "Built a student-controlled 360° VR tour with ambient audio for Open Day students, securing a £1,000 IT grant.",
   },
   {
     id: "young-engineers",
@@ -557,11 +549,11 @@ export const awardEntries: AwardEntry[] = [
 export const interestItems = [
   {
     name: "Guitar",
-    detail: "Playing and learning arrangements across acoustic and electric styles.",
+    detail: "Playing acoustic and electric arrangements.",
   },
   {
     name: "Digital Art & Illustration",
-    detail: "Building on A-Level Art foundations across digital illustration, 3D visual concepts, and interface design.",
+    detail: "Digital illustration, 3D concepts, and UI design.",
   },
   {
     name: "Music Exploration",

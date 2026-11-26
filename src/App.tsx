@@ -54,34 +54,18 @@ const confettiPieces = [
   { tx: "18px", ty: "-28px", rot: "-135deg", color: "#ffffff", delay: "0ms", wide: true },
 ];
 
-function renderBulletText(paragraph: string) {
-  const separatorIndex = paragraph.indexOf(": ");
-  if (separatorIndex > 0 && separatorIndex < 42) {
-    const lead = paragraph.slice(0, separatorIndex + 1);
-    const rest = paragraph.slice(separatorIndex + 2);
-    return (
-      <Text as="span" variant="body" tone="secondary">
-        <strong className="portfolio-bullet-lead">{lead}</strong> {rest}
-      </Text>
-    );
-  }
-  return (
-    <Text as="span" variant="body" tone="secondary">
-      {paragraph}
-    </Text>
-  );
-}
-
 function AccordionEntryList({
   entries,
   openId,
   onOpenIdChange,
   timeline = false,
+  hideOrganisationBadge = false,
 }: {
   entries: AccordionEntry[];
   openId: string | null;
   onOpenIdChange: (id: string | null) => void;
   timeline?: boolean;
+  hideOrganisationBadge?: boolean;
 }) {
   return (
     <div
@@ -119,7 +103,9 @@ function AccordionEntryList({
                     {entry.title}
                   </span>
                   <span className="portfolio-accordion-header__badges">
-                    <Badge variant="accent">{entry.organisation}</Badge>
+                    {!hideOrganisationBadge && (
+                      <Badge variant="accent">{entry.organisation}</Badge>
+                    )}
                     <Badge variant="default">{entry.period}</Badge>
                   </span>
                 </span>
@@ -129,7 +115,9 @@ function AccordionEntryList({
                 <ul className="portfolio-bullet-list">
                   {entry.paragraphs.map((paragraph, pIndex) => (
                     <li key={pIndex} className="portfolio-bullet-item">
-                      {renderBulletText(paragraph)}
+                      <Text as="span" variant="body" tone="secondary">
+                        {paragraph}
+                      </Text>
                     </li>
                   ))}
                 </ul>
@@ -535,7 +523,6 @@ function PortfolioPage() {
               ))}
             </div>
 
-            <Badge variant="accent">{heroContent.roleBadge}</Badge>
             <Heading level="display">{heroContent.greeting}</Heading>
             <Text
               variant="hero-intro"
@@ -562,45 +549,37 @@ function PortfolioPage() {
                 {heroContent.aboutTitle}
               </Heading>
             </div>
-            <ul className="portfolio-bullet-list">
+            <div className="portfolio-copy-stack">
               {heroContent.aboutParagraphs.map((paragraph, index) => (
-                <li key={index} className="portfolio-bullet-item">
-                  {renderBulletText(paragraph)}
-                </li>
+                <Text key={index} variant="body" tone="secondary">
+                  {paragraph}
+                </Text>
               ))}
-            </ul>
+            </div>
           </Panel>
         </section>
 
         <section id="experience" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <div className="portfolio-section-header">
+            <div className="portfolio-section-header portfolio-section-header--wrap">
               <Heading level="section" className="portfolio-section-heading">
                 My Job Experience
               </Heading>
+              <Badge variant="accent">CME Group Apprenticeship · 2024 - 2026</Badge>
             </div>
 
-            <div className="portfolio-timeline-group">
-              <div className="portfolio-timeline-group__bar">
-                <Text variant="micro" tone="primary">
-                  CME Group Apprenticeship Progression
-                </Text>
-                <Badge variant="accent">Sep 2024 - Dec 2026 · 6 Rotations</Badge>
-              </div>
-              <AccordionEntryList
-                entries={cmeExperienceEntries}
-                openId={openExperienceId}
-                onOpenIdChange={setOpenExperienceId}
-                timeline
-              />
-            </div>
+            <AccordionEntryList
+              entries={cmeExperienceEntries}
+              openId={openExperienceId}
+              onOpenIdChange={setOpenExperienceId}
+              timeline
+              hideOrganisationBadge
+            />
 
             <div className="portfolio-timeline-group">
-              <div className="portfolio-timeline-group__bar">
-                <Text variant="micro" tone="primary">
-                  Earlier Work Experience
-                </Text>
-              </div>
+              <Text variant="micro" tone="secondary">
+                Earlier Experience
+              </Text>
               <AccordionEntryList
                 entries={otherExperienceEntries}
                 openId={openExperienceId}
@@ -702,7 +681,9 @@ function PortfolioPage() {
                   <ul className="portfolio-bullet-list">
                     {selectedSkill.description.map((paragraph, index) => (
                       <li key={index} className="portfolio-bullet-item">
-                        {renderBulletText(paragraph)}
+                        <Text as="span" variant="body" tone="secondary">
+                          {paragraph}
+                        </Text>
                       </li>
                     ))}
                   </ul>
@@ -791,7 +772,9 @@ function PortfolioPage() {
                     <ul className="portfolio-bullet-list">
                       {edu.details.map((paragraph, index) => (
                         <li key={index} className="portfolio-bullet-item">
-                          {renderBulletText(paragraph)}
+                          <Text as="span" variant="body" tone="secondary">
+                            {paragraph}
+                          </Text>
                         </li>
                       ))}
                     </ul>
@@ -837,12 +820,12 @@ function PortfolioPage() {
                 <div className="portfolio-interests-list">
                   {interestItems.map((interest) => (
                     <div key={interest.name} className="portfolio-interest-item">
-                      <div className="portfolio-interest-item__content">
-                        <Badge variant="subtle">{interest.name}</Badge>
-                        <Text variant="small" tone="secondary">
-                          {interest.detail}
-                        </Text>
-                      </div>
+                      <Text variant="body" tone="primary">
+                        {interest.name}
+                      </Text>
+                      <Text variant="small" tone="secondary">
+                        {interest.detail}
+                      </Text>
                     </div>
                   ))}
                 </div>
