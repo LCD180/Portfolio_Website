@@ -18,6 +18,7 @@ import { CommandPalette, type CommandItem } from "./components/CommandPalette";
 import { ComponentOutliner } from "./components/ComponentOutliner";
 import { DesignSystemFooter } from "./components/DesignSystemFooter";
 import {
+  appliedInTargets,
   awardEntries,
   contactsContent,
   educationEntries,
@@ -51,16 +52,23 @@ const confettiPieces = [
   { tx: "18px", ty: "-28px", rot: "-135deg", color: "#ffffff", delay: "0ms", wide: true },
 ];
 
-function AccordionEntryList({ entries }: { entries: AccordionEntry[] }) {
-  const [openId, setOpenId] = useState<string | null>(entries[0]?.id ?? null);
-
+function AccordionEntryList({
+  entries,
+  openId,
+  onOpenIdChange,
+}: {
+  entries: AccordionEntry[];
+  openId: string | null;
+  onOpenIdChange: (id: string | null) => void;
+}) {
   return (
     <div className="portfolio-accordion-list">
       {entries.map((entry) => (
         <Accordion
           key={entry.id}
+          id={`entry-${entry.id}`}
           open={openId === entry.id}
-          onOpenChange={(nextOpen) => setOpenId(nextOpen ? entry.id : null)}
+          onOpenChange={(nextOpen) => onOpenIdChange(nextOpen ? entry.id : null)}
           title={
             <span className="portfolio-accordion-header">
               <span className="portfolio-accordion-header__title">
@@ -116,6 +124,15 @@ function PortfolioPage() {
   const { theme, toggleTheme } = useTheme();
   const [activeNav, setActiveNav] = useState("home");
   const [selectedSkillId, setSelectedSkillId] = useState(skills[0].id);
+  const [openExperienceId, setOpenExperienceId] = useState<string | null>(
+    experienceEntries[0]?.id ?? null,
+  );
+  const [openPersonalProjectId, setOpenPersonalProjectId] = useState<
+    string | null
+  >(personalProjectEntries[0]?.id ?? null);
+  const [openSchoolProjectId, setOpenSchoolProjectId] = useState<string | null>(
+    schoolProjectEntries[0]?.id ?? null,
+  );
   const [emailCopied, setEmailCopied] = useState(false);
   const [confettiBurstId, setConfettiBurstId] = useState(0);
   const [paletteOpen, setPaletteOpen] = useState(false);
@@ -142,6 +159,30 @@ function PortfolioPage() {
 
   const scrollToExperience = () => {
     jumpToSection("experience");
+  };
+
+  const handleAppliedInClick = (item: string) => {
+    const target = appliedInTargets[item];
+    if (!target) {
+      return;
+    }
+
+    if (target.group === "experience" && target.entryId) {
+      setOpenExperienceId(target.entryId);
+    } else if (target.group === "personal" && target.entryId) {
+      setOpenPersonalProjectId(target.entryId);
+    } else if (target.group === "school" && target.entryId) {
+      setOpenSchoolProjectId(target.entryId);
+    }
+
+    const navTarget =
+      target.sectionId === "education" ? "other" : target.sectionId;
+    handleNavigate(navTarget);
+
+    const element =
+      (target.entryId && document.getElementById(`entry-${target.entryId}`)) ||
+      document.getElementById(target.sectionId);
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const handleSkillKeyDown = (
@@ -477,7 +518,11 @@ function PortfolioPage() {
                 My Job Experience
               </Heading>
             </div>
-            <AccordionEntryList entries={experienceEntries} />
+            <AccordionEntryList
+              entries={experienceEntries}
+              openId={openExperienceId}
+              onOpenIdChange={setOpenExperienceId}
+            />
           </Panel>
         </section>
 
@@ -553,9 +598,15 @@ function PortfolioPage() {
                     </Text>
                     <div className="portfolio-tag-row">
                       {selectedSkill.appliedIn.map((item) => (
-                        <Badge key={item} variant="subtle">
-                          {item}
-                        </Badge>
+                        <button
+                          key={item}
+                          type="button"
+                          className="ds-badge ds-badge--subtle portfolio-applied-badge"
+                          onClick={() => handleAppliedInClick(item)}
+                        >
+                          <span>{item}</span>
+                          <ArrowUpRightSquareIcon size={12} />
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -572,7 +623,11 @@ function PortfolioPage() {
                 Projects
               </Heading>
             </div>
-            <AccordionEntryList entries={personalProjectEntries} />
+            <AccordionEntryList
+              entries={personalProjectEntries}
+              openId={openPersonalProjectId}
+              onOpenIdChange={setOpenPersonalProjectId}
+            />
           </Panel>
 
           <Panel padding="lg" className="portfolio-section-panel">
@@ -581,7 +636,11 @@ function PortfolioPage() {
                 School Projects
               </Heading>
             </div>
-            <AccordionEntryList entries={schoolProjectEntries} />
+            <AccordionEntryList
+              entries={schoolProjectEntries}
+              openId={openSchoolProjectId}
+              onOpenIdChange={setOpenSchoolProjectId}
+            />
           </Panel>
         </section>
 
@@ -596,6 +655,7 @@ function PortfolioPage() {
               {educationEntries.map((edu) => (
                 <TextBox
                   key={edu.id}
+                  id={`entry-${edu.id}`}
                   title={
                     <div className="portfolio-edu-header">
                       <span>{edu.institution}</span>
@@ -660,9 +720,8 @@ function PortfolioPage() {
 
               <TextBox title="Interests" padding="comfortable">
                 <div className="portfolio-interests-list">
-                  {interestItems.map((interest, index) => (
+                  {interestItems.map((interest) => (
                     <div key={interest.name} className="portfolio-interest-item">
-                      {index > 0 && <Divider />}
                       <div className="portfolio-interest-item__content">
                         <Badge variant="subtle">{interest.name}</Badge>
                         <Text variant="small" tone="secondary">

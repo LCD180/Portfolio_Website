@@ -143,9 +143,9 @@ export const skills: SkillItem[] = [
     category: "Frontend & Fullstack",
     description: [
       "Rebuilt the legacy Network Reliability Engineering (NRE) Graph tool frontend, improving UX flow and load speeds.",
-      "Built React component libraries and Google App Scripts APIs for automated internal software request workflows.",
+      "Built React component libraries and worked on an API for Software Request Form AppScripts.",
     ],
-    appliedIn: ["NRE Graph Tool Overhaul", "Simple Portfolio Design System", "Software Request Form API"],
+    appliedIn: ["NRE Graph Tool Overhaul", "Simple Portfolio Design System", "Software Request Form AppScripts"],
   },
   {
     id: "html5",
@@ -264,9 +264,9 @@ export const skills: SkillItem[] = [
     icon: "./icons/androidstudio.svg",
     category: "Mobile, Scripts & SecOps",
     description: [
-      "Worked with Android Studio, Google App Scripts APIs, Tripwire Enterprise and Remedy (resolving 1,000+ cleartext password exposures), and Jamf/Oomnitza.",
+      "Worked with Android Studio, an API for Software Request Form AppScripts, Tripwire Enterprise and Remedy (resolving 1,000+ cleartext password exposures), and Jamf/Oomnitza.",
     ],
-    appliedIn: ["Software Request Form API", "Tripwire Enterprise VMT", "Android Studio"],
+    appliedIn: ["Tripwire Enterprise VMT", "Software Request Form AppScripts", "Android Studio"],
   },
 ];
 
@@ -396,17 +396,46 @@ export const personalProjectEntries: AccordionEntry[] = [
       url: designSystemInfo.figmaUrl,
     },
   },
-  {
-    id: "appscripts-api",
-    title: "Software Request Form AppScripts API",
-    organisation: "Automation & Tooling",
-    period: "Project",
-    paragraphs: [
-      "Built a Google App Scripts API integration to automate Software Request Form submissions and approval routing.",
-    ],
-    tags: ["Google App Scripts", "API Integration", "Workflow Automation"],
-  },
 ];
+
+export const appliedInTargets: Record<
+  string,
+  { sectionId: string; entryId?: string; group?: "experience" | "personal" | "school" }
+> = {
+  "MDRT Billing Application": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "Java 17 CI/CD Pipelines": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "BSc Computing Systems": { sectionId: "education", entryId: "ulster-uni" },
+  "Concurrent GCP Data Upload": { sectionId: "experience", entryId: "cme-nre", group: "experience" },
+  "NRE Graph Tool": { sectionId: "experience", entryId: "cme-nre", group: "experience" },
+  "NRE Graph Tool Overhaul": { sectionId: "experience", entryId: "cme-nre", group: "experience" },
+  "NRE Custom Design System": { sectionId: "experience", entryId: "cme-nre", group: "experience" },
+  "Adversarial ML Art Platform": { sectionId: "projects", entryId: "art-platform", group: "personal" },
+  "Full-Stack Art Platform & Adversarial ML": { sectionId: "projects", entryId: "art-platform", group: "personal" },
+  "CCEA Exemplary Coursework (100%)": { sectionId: "education", entryId: "lagan-college" },
+  "Software Systems Development": { sectionId: "education", entryId: "lagan-college" },
+  "Simple Portfolio Design System": { sectionId: "projects", entryId: "portfolio-ds", group: "personal" },
+  "Portfolio Web App": { sectionId: "projects", entryId: "portfolio-ds", group: "personal" },
+  "Digital Form Services": { sectionId: "experience", entryId: "civil-service-and-mcdonalds", group: "experience" },
+  "MDRT BigQuery Billing": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "Database Systems": { sectionId: "education", entryId: "ulster-uni" },
+  "Argo Workflows CI/CD": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "GKE Cluster Configurations": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "CME Design System": { sectionId: "experience", entryId: "cme-cx", group: "experience" },
+  "Desk Booking Redesign": { sectionId: "experience", entryId: "cme-desk-booking-role", group: "experience" },
+  "CME Trading Simulator": { sectionId: "experience", entryId: "cme-cx", group: "experience" },
+  "MDRT Market Data Streaming": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "GKE Environment Isolation": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "On-Prem to Cloud Migration": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "GCP Pub/Sub & BigQuery": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "MDRT CI/CD Modernisation": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "Artifact Registry Builds": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "MDRT Real-Time Market Data": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "MDRT WebSockets & gRPC": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "Pact Contract Testing": { sectionId: "experience", entryId: "cme-mdrt", group: "experience" },
+  "Tripwire Enterprise VMT": { sectionId: "experience", entryId: "cme-vmt", group: "experience" },
+  "Software Request Form AppScripts": { sectionId: "experience", entryId: "cme-nre", group: "experience" },
+  "Android Studio": { sectionId: "education", entryId: "ulster-uni" },
+};
 
 export const schoolProjectEntries: AccordionEntry[] = [
   {

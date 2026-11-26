@@ -184,7 +184,7 @@ body {
   display: inline-block;
   width: 4px;
   height: 26px;
-  border-radius: 2px;
+  border-radius: 0;
   background-color: var(--ds-action-secondary-default);
   flex-shrink: 0;
 }
@@ -196,9 +196,10 @@ body {
 }
 
 .portfolio-projects-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
 }
 
 .portfolio-bullet-list {
@@ -285,6 +286,22 @@ body {
   gap: 10px;
 }
 
+.portfolio-applied-badge {
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.portfolio-applied-badge:hover {
+  background-color: var(--ds-action-secondary-default);
+  border-color: var(--ds-action-secondary-default);
+  color: var(--ds-text-on-secondary-default);
+  transform: translateY(-1px);
+}
+
 .portfolio-tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -364,22 +381,25 @@ body {
 }
 
 .portfolio-interests-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .portfolio-interest-item {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  padding: 12px;
+  background-color: var(--ds-panel-bg);
+  border: 1px solid var(--ds-panel-border);
+  border-radius: var(--ds-radius-panel);
 }
 
 .portfolio-interest-item__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 8px;
 }
 
 .portfolio-skills-detail {
@@ -791,8 +811,10 @@ body {
 
 @media (max-width: 900px) {
   .portfolio-bottom-row,
+  .portfolio-projects-stack,
   .portfolio-education-grid,
-  .portfolio-awards-grid {
+  .portfolio-awards-grid,
+  .portfolio-interests-list {
     grid-template-columns: 1fr;
   }
 }
