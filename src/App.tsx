@@ -176,6 +176,9 @@ function PortfolioPage() {
   );
   const [emailCopied, setEmailCopied] = useState(false);
   const [confettiBurstId, setConfettiBurstId] = useState(0);
+  const [confettiSource, setConfettiSource] = useState<"top" | "bottom">(
+    "bottom",
+  );
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [outlineComponents, setOutlineComponents] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -274,7 +277,7 @@ function PortfolioPage() {
     }
   };
 
-  const handleCopyEmail = async () => {
+  const handleCopyEmail = async (source: "top" | "bottom" = "bottom") => {
     try {
       if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(contactsContent.emailValue);
@@ -289,6 +292,7 @@ function PortfolioPage() {
         document.execCommand("copy");
         document.body.removeChild(input);
       }
+      setConfettiSource(source);
       setEmailCopied(true);
       setConfettiBurstId((prev) => prev + 1);
       if (copyTimerRef.current !== null) {
@@ -511,19 +515,50 @@ function PortfolioPage() {
             <div className="portfolio-hero__socials" aria-label="Social links">
               {topSocialBadges.map((social) =>
                 social.id === "email" ? (
-                  <button
-                    key={social.id}
-                    type="button"
-                    onClick={handleCopyEmail}
-                    aria-live="polite"
-                    className={
-                      emailCopied
-                        ? "ds-badge ds-badge--accent portfolio-social-badge"
-                        : "ds-badge ds-badge--subtle portfolio-social-badge"
-                    }
-                  >
-                    <span>{emailCopied ? "Email Copied!" : social.label}</span>
-                  </button>
+                  <div key={social.id} className="portfolio-copy-wrap">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        void handleCopyEmail("top");
+                      }}
+                      aria-live="polite"
+                      className={
+                        emailCopied
+                          ? "ds-badge ds-badge--accent portfolio-social-badge"
+                          : "ds-badge ds-badge--subtle portfolio-social-badge"
+                      }
+                    >
+                      <span>{emailCopied ? "Email Copied!" : social.label}</span>
+                    </button>
+                    {confettiBurstId > 0 && confettiSource === "top" && (
+                      <div
+                        key={confettiBurstId}
+                        className="portfolio-confetti"
+                        data-testid="email-confetti"
+                        aria-hidden="true"
+                      >
+                        {confettiPieces.map((piece, index) => (
+                          <span
+                            key={index}
+                            className={
+                              piece.wide
+                                ? "portfolio-confetti__piece portfolio-confetti__piece--wide"
+                                : "portfolio-confetti__piece"
+                            }
+                            style={
+                              {
+                                "--tx": piece.tx,
+                                "--ty": piece.ty,
+                                "--rot": piece.rot,
+                                "--delay": piece.delay,
+                                "--color": piece.color,
+                              } as CSSProperties
+                            }
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <a
                     key={social.id}
@@ -873,12 +908,14 @@ function PortfolioPage() {
                         <Button
                           size="small"
                           variant={emailCopied ? "secondary" : "primary"}
-                          onClick={handleCopyEmail}
+                          onClick={() => {
+                            void handleCopyEmail("bottom");
+                          }}
                           aria-live="polite"
                         >
                           {emailCopied ? "Copied" : "Copy"}
                         </Button>
-                        {confettiBurstId > 0 && (
+                        {confettiBurstId > 0 && confettiSource === "bottom" && (
                           <div
                             key={confettiBurstId}
                             className="portfolio-confetti"
