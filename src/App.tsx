@@ -229,9 +229,7 @@ function PortfolioPage() {
       setOpenSchoolProjectId(target.entryId);
     }
 
-    const navTarget =
-      target.sectionId === "education" ? "other" : target.sectionId;
-    handleNavigate(navTarget);
+    handleNavigate(target.sectionId);
 
     const element =
       (target.entryId && document.getElementById(`entry-${target.entryId}`)) ||
@@ -614,7 +612,7 @@ function PortfolioPage() {
           <Panel padding="lg" className="portfolio-section-panel">
             <div className="portfolio-section-header portfolio-section-header--wrap">
               <Heading level="section" className="portfolio-section-heading">
-                My Job Experience
+                Work Experience
               </Heading>
               <Badge variant="accent">CME Group Apprenticeship · 2024 - 2026</Badge>
             </div>
@@ -644,7 +642,7 @@ function PortfolioPage() {
           <Panel padding="lg" className="portfolio-section-panel">
             <div className="portfolio-section-header portfolio-section-header--wrap">
               <Heading level="section" className="portfolio-section-heading">
-                What Skills I Have
+                Technical Skills
               </Heading>
               <div
                 className="portfolio-skill-filters"

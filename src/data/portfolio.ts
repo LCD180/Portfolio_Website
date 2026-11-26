@@ -72,7 +72,7 @@ export const navigationItems = [
   { id: "experience", label: "Experience", href: "#experience" },
   { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
-  { id: "other", label: "Other", href: "#other" },
+  { id: "education", label: "Education", href: "#education" },
   { id: "contact", label: "Contact", href: "#contact" },
 ];
 
@@ -562,7 +562,7 @@ export const interestItems = [
 ];
 
 export const contactsContent = {
-  title: "Contacts",
+  title: "Contact",
   emailLabel: "Email:",
   emailValue: "lewis.dempster@hotmail.com",
   linkedinLabel: "LinkedIn:",

@@ -16,12 +16,12 @@ describe("Portfolio App", () => {
     expect(screen.getByLabelText("Social links")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "I’m Lewis," })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "About Me" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "My Job Experience" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "What Skills I Have" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Work Experience" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Technical Skills" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Projects" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "School Projects" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Awards and Interests" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Contacts" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Contact" })).toBeInTheDocument();
   });
 
   it("updates skill details when selecting another skill tile", async () => {
