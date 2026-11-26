@@ -116,7 +116,7 @@ export const heroContent = {
   intro:
     "A software developer building interfaces that balance elegant aesthetics with zero friction usability.",
   ctaLabel: "View Experience",
-  aboutTitle: "Who am I",
+  aboutTitle: "About Me",
   aboutParagraphs: [
     "I am an IT Higher Level Apprentice at CME Group studying BSc (Hons) Computing Systems at Ulster University, with a creative edge and a strong interest in future-focused technology.",
     "Rotating across backend market data development, full-stack tooling, vulnerability compliance, and UI/UX design in Agile teams has given me hands-on experience across both software engineering and interface design.",

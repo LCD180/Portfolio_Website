@@ -15,7 +15,7 @@ describe("Portfolio App", () => {
     expect(screen.getByText("Lewis Dempster", { selector: ".ds-nav__brand" })).toBeInTheDocument();
     expect(screen.getByLabelText("Social links")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "I’m Lewis," })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Who am I" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "About Me" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "My Job Experience" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "What Skills I Have" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Projects" })).toBeInTheDocument();
