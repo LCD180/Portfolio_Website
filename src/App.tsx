@@ -52,19 +52,28 @@ const confettiPieces = [
 ];
 
 function AccordionEntryList({ entries }: { entries: AccordionEntry[] }) {
+  const [openId, setOpenId] = useState<string | null>(entries[0]?.id ?? null);
+
   return (
     <div className="portfolio-accordion-list">
-      {entries.map((entry, index) => (
+      {entries.map((entry) => (
         <Accordion
           key={entry.id}
-          title={entry.title}
-          defaultOpen={index === 0}
+          open={openId === entry.id}
+          onOpenChange={(nextOpen) => setOpenId(nextOpen ? entry.id : null)}
+          title={
+            <span className="portfolio-accordion-header">
+              <span className="portfolio-accordion-header__title">
+                {entry.title}
+              </span>
+              <span className="portfolio-accordion-header__badges">
+                <Badge variant="accent">{entry.organisation}</Badge>
+                <Badge variant="default">{entry.period}</Badge>
+              </span>
+            </span>
+          }
         >
           <div className="portfolio-entry-body">
-            <div className="portfolio-entry-meta">
-              <Badge variant="accent">{entry.organisation}</Badge>
-              <Badge variant="default">{entry.period}</Badge>
-            </div>
             <ul className="portfolio-bullet-list">
               {entry.paragraphs.map((paragraph, pIndex) => (
                 <li key={pIndex} className="portfolio-bullet-item">

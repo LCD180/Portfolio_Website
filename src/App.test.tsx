@@ -39,17 +39,22 @@ describe("Portfolio App", () => {
     );
   });
 
-  it("toggles experience accordion items", async () => {
+  it("toggles experience accordion items and closes others when one opens", async () => {
     const user = userEvent.setup();
     render(<App />);
 
+    const firstJob = screen.getByRole("button", {
+      name: /Market Data Real Time - Backend Development/i,
+    });
     const secondJob = screen.getByRole("button", {
       name: /Network Reliability Engineering \(NRE\)/i,
     });
+    expect(firstJob).toHaveAttribute("aria-expanded", "true");
     expect(secondJob).toHaveAttribute("aria-expanded", "false");
 
     await user.click(secondJob);
     expect(secondJob).toHaveAttribute("aria-expanded", "true");
+    expect(firstJob).toHaveAttribute("aria-expanded", "false");
   });
 
   it("copies email address to clipboard when clicking Copy", async () => {

@@ -299,8 +299,30 @@ body {
   padding: 6px 4px;
 }
 
-.portfolio-entry-meta {
+.portfolio-accordion-list .ds-accordion__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.portfolio-accordion-header {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  width: 100%;
+  padding-right: 4px;
+}
+
+.portfolio-accordion-header__title {
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.portfolio-accordion-header__badges {
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
@@ -323,7 +345,7 @@ body {
 
 .portfolio-awards-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -769,7 +791,8 @@ body {
 
 @media (max-width: 900px) {
   .portfolio-bottom-row,
-  .portfolio-education-grid {
+  .portfolio-education-grid,
+  .portfolio-awards-grid {
     grid-template-columns: 1fr;
   }
 }

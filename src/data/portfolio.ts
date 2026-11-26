@@ -252,9 +252,9 @@ export const skills: SkillItem[] = [
     id: "pytorch",
     name: "PyTorch & Machine Learning",
     icon: "./icons/pytorch.svg",
-    category: "AI & Adversarial ML",
+    category: "Machine Learning",
     description: [
-      "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise against AI scraping.",
+      "Building a full-stack social platform for artists using PyTorch and Hugging Face to apply adversarial noise against automated image scraping.",
     ],
     appliedIn: ["Full-Stack Art Platform & Adversarial ML"],
   },
@@ -354,7 +354,7 @@ export const experienceEntries: AccordionEntry[] = [
       "Built a product customer-service chatbot prototype for Northern Ireland tech company DisplayNote.",
       "Pitched the working prototype and business case directly to the CEO.",
     ],
-    tags: ["Chatbot Prototype", "Customer Service AI", "CEO Pitch"],
+    tags: ["Chatbot Prototype", "Customer Service Automation", "CEO Pitch"],
   },
   {
     id: "civil-service-and-mcdonalds",
@@ -377,7 +377,7 @@ export const personalProjectEntries: AccordionEntry[] = [
     period: "Current",
     paragraphs: [
       "Building a full-stack social platform for artists integrated with machine learning protection workflows.",
-      "Uses PyTorch and Hugging Face models to apply adversarial noise (Glaze/Nightshade concept) so uploaded artwork resists AI scraping.",
+      "Uses PyTorch and Hugging Face models to apply adversarial noise (Glaze/Nightshade concept) so uploaded artwork resists automated image scraping.",
     ],
     tags: ["PyTorch", "Hugging Face", "Adversarial ML", "Python", "Full-Stack"],
   },
