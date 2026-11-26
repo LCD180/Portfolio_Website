@@ -166,6 +166,47 @@ body {
   border-bottom: 1px solid var(--ds-panel-border);
 }
 
+.portfolio-section-header--wrap {
+  flex-wrap: wrap;
+}
+
+.portfolio-skill-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.portfolio-skill-filter-btn {
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease;
+}
+
+.portfolio-skill-filter-btn:hover {
+  border-color: var(--ds-action-secondary-default);
+  color: var(--ds-text-primary);
+}
+
+.portfolio-skill-filter-btn--active:hover {
+  color: var(--ds-text-on-secondary-default);
+}
+
+.portfolio-skill-tile--dimmed {
+  opacity: 0.28;
+  filter: grayscale(0.65);
+  transition:
+    opacity 160ms ease,
+    filter 160ms ease;
+}
+
+.portfolio-skill-tile--dimmed:hover {
+  opacity: 0.85;
+  filter: grayscale(0.15);
+}
+
 .portfolio-section-heading.ds-heading--section {
   position: relative;
   display: inline-flex;
@@ -226,6 +267,63 @@ body {
   height: 6px;
   border-radius: 50%;
   background-color: var(--ds-action-secondary-default);
+}
+
+.portfolio-bullet-lead {
+  color: var(--ds-text-primary);
+  font-weight: 600;
+}
+
+.portfolio-timeline-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portfolio-timeline-group__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.portfolio-accordion-list--timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.portfolio-accordion-list--timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 18px;
+  bottom: 18px;
+  width: 2px;
+  background-color: var(--ds-action-secondary-default);
+}
+
+.portfolio-timeline-item {
+  position: relative;
+}
+
+.portfolio-timeline-node {
+  position: absolute;
+  left: -21px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--ds-panel-bg);
+  border: 2px solid var(--ds-action-secondary-default);
+  box-sizing: border-box;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.portfolio-timeline-item--open .portfolio-timeline-node {
+  background-color: var(--ds-action-secondary-default);
+  transform: scale(1.15);
 }
 
 .portfolio-skills-layout {

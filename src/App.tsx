@@ -28,9 +28,11 @@ import {
   navigationItems,
   personalProjectEntries,
   schoolProjectEntries,
+  skillFilterGroups,
   skills,
   topSocialBadges,
   type AccordionEntry,
+  type SkillFilterGroupId,
 } from "./data/portfolio";
 
 const confettiPieces = [
@@ -52,78 +54,129 @@ const confettiPieces = [
   { tx: "18px", ty: "-28px", rot: "-135deg", color: "#ffffff", delay: "0ms", wide: true },
 ];
 
+function renderBulletText(paragraph: string) {
+  const separatorIndex = paragraph.indexOf(": ");
+  if (separatorIndex > 0 && separatorIndex < 42) {
+    const lead = paragraph.slice(0, separatorIndex + 1);
+    const rest = paragraph.slice(separatorIndex + 2);
+    return (
+      <Text as="span" variant="body" tone="secondary">
+        <strong className="portfolio-bullet-lead">{lead}</strong> {rest}
+      </Text>
+    );
+  }
+  return (
+    <Text as="span" variant="body" tone="secondary">
+      {paragraph}
+    </Text>
+  );
+}
+
 function AccordionEntryList({
   entries,
   openId,
   onOpenIdChange,
+  timeline = false,
 }: {
   entries: AccordionEntry[];
   openId: string | null;
   onOpenIdChange: (id: string | null) => void;
+  timeline?: boolean;
 }) {
   return (
-    <div className="portfolio-accordion-list">
-      {entries.map((entry) => (
-        <Accordion
-          key={entry.id}
-          id={`entry-${entry.id}`}
-          open={openId === entry.id}
-          onOpenChange={(nextOpen) => onOpenIdChange(nextOpen ? entry.id : null)}
-          title={
-            <span className="portfolio-accordion-header">
-              <span className="portfolio-accordion-header__title">
-                {entry.title}
-              </span>
-              <span className="portfolio-accordion-header__badges">
-                <Badge variant="accent">{entry.organisation}</Badge>
-                <Badge variant="default">{entry.period}</Badge>
-              </span>
-            </span>
-          }
-        >
-          <div className="portfolio-entry-body">
-            <ul className="portfolio-bullet-list">
-              {entry.paragraphs.map((paragraph, pIndex) => (
-                <li key={pIndex} className="portfolio-bullet-item">
-                  <Text as="span" variant="body" tone="secondary">
-                    {paragraph}
-                  </Text>
-                </li>
-              ))}
-            </ul>
-            <div className="portfolio-tag-row">
-              {entry.tags.map((tag) => (
-                <Badge key={tag} variant="subtle">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-            {entry.link && (
-              <div>
-                <a
-                  href={entry.link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ds-btn ds-btn--secondary ds-btn--small"
-                >
-                  <span>{entry.link.label}</span>
-                  <span className="ds-btn__icon">
-                    <ArrowUpRightSquareIcon size={16} />
-                  </span>
-                </a>
-              </div>
+    <div
+      className={
+        timeline
+          ? "portfolio-accordion-list portfolio-accordion-list--timeline"
+          : "portfolio-accordion-list"
+      }
+    >
+      {entries.map((entry) => {
+        const isOpen = openId === entry.id;
+        return (
+          <div
+            key={entry.id}
+            className={
+              timeline
+                ? isOpen
+                  ? "portfolio-timeline-item portfolio-timeline-item--open"
+                  : "portfolio-timeline-item"
+                : undefined
+            }
+          >
+            {timeline && (
+              <span className="portfolio-timeline-node" aria-hidden="true" />
             )}
+            <Accordion
+              id={`entry-${entry.id}`}
+              open={isOpen}
+              onOpenChange={(nextOpen) =>
+                onOpenIdChange(nextOpen ? entry.id : null)
+              }
+              title={
+                <span className="portfolio-accordion-header">
+                  <span className="portfolio-accordion-header__title">
+                    {entry.title}
+                  </span>
+                  <span className="portfolio-accordion-header__badges">
+                    <Badge variant="accent">{entry.organisation}</Badge>
+                    <Badge variant="default">{entry.period}</Badge>
+                  </span>
+                </span>
+              }
+            >
+              <div className="portfolio-entry-body">
+                <ul className="portfolio-bullet-list">
+                  {entry.paragraphs.map((paragraph, pIndex) => (
+                    <li key={pIndex} className="portfolio-bullet-item">
+                      {renderBulletText(paragraph)}
+                    </li>
+                  ))}
+                </ul>
+                <div className="portfolio-tag-row">
+                  {entry.tags.map((tag) => (
+                    <Badge key={tag} variant="subtle">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                {entry.link && (
+                  <div>
+                    <a
+                      href={entry.link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ds-btn ds-btn--secondary ds-btn--small"
+                    >
+                      <span>{entry.link.label}</span>
+                      <span className="ds-btn__icon">
+                        <ArrowUpRightSquareIcon size={16} />
+                      </span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </Accordion>
           </div>
-        </Accordion>
-      ))}
+        );
+      })}
     </div>
   );
 }
+
+const cmeExperienceEntries = experienceEntries.filter(
+  (entry) => entry.organisation === "CME Group",
+);
+const otherExperienceEntries = experienceEntries.filter(
+  (entry) => entry.organisation !== "CME Group",
+);
 
 function PortfolioPage() {
   const { theme, toggleTheme } = useTheme();
   const [activeNav, setActiveNav] = useState("home");
   const [selectedSkillId, setSelectedSkillId] = useState(skills[0].id);
+  const [activeSkillFilter, setActiveSkillFilter] =
+    useState<SkillFilterGroupId>("all");
   const [openExperienceId, setOpenExperienceId] = useState<string | null>(
     experienceEntries[0]?.id ?? null,
   );
@@ -145,6 +198,16 @@ function PortfolioPage() {
 
   const selectedSkill =
     skills.find((skill) => skill.id === selectedSkillId) ?? skills[0];
+
+  const handleSelectSkillFilter = (groupId: SkillFilterGroupId) => {
+    setActiveSkillFilter(groupId);
+    if (groupId !== "all" && selectedSkill.filterGroup !== groupId) {
+      const firstMatch = skills.find((skill) => skill.filterGroup === groupId);
+      if (firstMatch) {
+        setSelectedSkillId(firstMatch.id);
+      }
+    }
+  };
 
   const handleNavigate = (id: string) => {
     manualLockUntilRef.current = Date.now() + 700;
@@ -502,9 +565,7 @@ function PortfolioPage() {
             <ul className="portfolio-bullet-list">
               {heroContent.aboutParagraphs.map((paragraph, index) => (
                 <li key={index} className="portfolio-bullet-item">
-                  <Text as="span" variant="body" tone="secondary">
-                    {paragraph}
-                  </Text>
+                  {renderBulletText(paragraph)}
                 </li>
               ))}
             </ul>
@@ -518,20 +579,67 @@ function PortfolioPage() {
                 My Job Experience
               </Heading>
             </div>
-            <AccordionEntryList
-              entries={experienceEntries}
-              openId={openExperienceId}
-              onOpenIdChange={setOpenExperienceId}
-            />
+
+            <div className="portfolio-timeline-group">
+              <div className="portfolio-timeline-group__bar">
+                <Text variant="micro" tone="primary">
+                  CME Group Apprenticeship Progression
+                </Text>
+                <Badge variant="accent">Sep 2024 - Dec 2026 · 6 Rotations</Badge>
+              </div>
+              <AccordionEntryList
+                entries={cmeExperienceEntries}
+                openId={openExperienceId}
+                onOpenIdChange={setOpenExperienceId}
+                timeline
+              />
+            </div>
+
+            <div className="portfolio-timeline-group">
+              <div className="portfolio-timeline-group__bar">
+                <Text variant="micro" tone="primary">
+                  Earlier Work Experience
+                </Text>
+              </div>
+              <AccordionEntryList
+                entries={otherExperienceEntries}
+                openId={openExperienceId}
+                onOpenIdChange={setOpenExperienceId}
+              />
+            </div>
           </Panel>
         </section>
 
         <section id="skills" data-reveal>
           <Panel padding="lg" className="portfolio-section-panel">
-            <div className="portfolio-section-header">
+            <div className="portfolio-section-header portfolio-section-header--wrap">
               <Heading level="section" className="portfolio-section-heading">
                 What Skills I Have
               </Heading>
+              <div
+                className="portfolio-skill-filters"
+                role="group"
+                aria-label="Filter skills by category"
+              >
+                {skillFilterGroups.map((group) => {
+                  const isActive = activeSkillFilter === group.id;
+                  return (
+                    <button
+                      key={group.id}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => handleSelectSkillFilter(group.id)}
+                      className={
+                        isActive
+                          ? "ds-badge ds-badge--accent portfolio-skill-filter-btn portfolio-skill-filter-btn--active"
+                          : "ds-badge ds-badge--subtle portfolio-skill-filter-btn"
+                      }
+                    >
+                      {group.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <div className="portfolio-skills-layout">
               <div
@@ -541,6 +649,9 @@ function PortfolioPage() {
               >
                 {skills.map((skill, index) => {
                   const isSelected = skill.id === selectedSkill.id;
+                  const isDimmed =
+                    activeSkillFilter !== "all" &&
+                    skill.filterGroup !== activeSkillFilter;
                   return (
                     <IconPanel
                       key={skill.id}
@@ -550,7 +661,15 @@ function PortfolioPage() {
                       label={skill.name}
                       selected={isSelected}
                       tabIndex={isSelected ? 0 : -1}
-                      onClick={() => setSelectedSkillId(skill.id)}
+                      className={
+                        isDimmed ? "portfolio-skill-tile--dimmed" : undefined
+                      }
+                      onClick={() => {
+                        setSelectedSkillId(skill.id);
+                        if (isDimmed) {
+                          setActiveSkillFilter("all");
+                        }
+                      }}
                       onKeyDown={(event) => handleSkillKeyDown(event, index)}
                     >
                       <img
@@ -583,9 +702,7 @@ function PortfolioPage() {
                   <ul className="portfolio-bullet-list">
                     {selectedSkill.description.map((paragraph, index) => (
                       <li key={index} className="portfolio-bullet-item">
-                        <Text as="span" variant="body" tone="secondary">
-                          {paragraph}
-                        </Text>
+                        {renderBulletText(paragraph)}
                       </li>
                     ))}
                   </ul>
@@ -674,9 +791,7 @@ function PortfolioPage() {
                     <ul className="portfolio-bullet-list">
                       {edu.details.map((paragraph, index) => (
                         <li key={index} className="portfolio-bullet-item">
-                          <Text as="span" variant="body" tone="secondary">
-                            {paragraph}
-                          </Text>
+                          {renderBulletText(paragraph)}
                         </li>
                       ))}
                     </ul>
